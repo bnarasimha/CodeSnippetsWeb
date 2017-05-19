@@ -14,25 +14,22 @@
             codeSnip.config(function($routeProvider){
                 $routeProvider
                 .when("/", {
-                    template : "index 123"
-                })
-                .when("/test", {
-                    templateUrl: 'test.html'
+                    templateUrl : "user/home.html"
                 })
                 .when("/admin",{
-                    template : "admin 123"
+                    templateUrl : "admin/addSnip.html"
                 });
             });
         </script>
     </head>
     <body ng-app="codeSnip">
-        {{ 10 + 3 }}
         <div class="container">
             <div class="row">
                 <div class="column col-md-10">
                     <h2><b><u><center> Code Snippets </center> </u> </b> </h2>
                 </div>
-                <a class="column col-md-2" href="#admin">admin</a>
+                <a class="column col-md-1" href="#admin">admin</a>
+                <a class="column col-md-1" href="#/">home</a>
             </div>
             <div class="row">   
                 <div class="column col-sm-2">
