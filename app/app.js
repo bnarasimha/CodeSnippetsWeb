@@ -1,4 +1,4 @@
-angular.module('CodeSnip', ['ngRoute', 'AdalAngular'])
+angular.module('codeSnip', ['ngRoute', 'AdalAngular'])
 .config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider'], 
 function($routeProvider, $httpProvider, adalProvider){
     $routeProvider
