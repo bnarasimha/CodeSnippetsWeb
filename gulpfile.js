@@ -21,7 +21,7 @@ gulp.task("html", function(){
 
 gulp.task("jshint", function(){
     gulp.src("./app/scripts/**/*.js")
-    .pipe(jshint(".jshintrc"))
+    //.pipe(jshint(".jshintrc"))
     .pipe(jshint.reporter("jshint-stylish"))
     .pipe(jshint.reporter("fail"));
 });

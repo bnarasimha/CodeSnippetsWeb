@@ -1,11 +1,53 @@
 <html>
     <head>
-        <link ng-src=""/>
         <title> Welcome to CodeSnippets! </title>
+        <!--<script src="app.js"></script>-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     </head>
-    <body>
-        <h1> Code CodeSnippets! </h1>
-
-        Welcome to Code Snippets.
+    <body ng-app="">
+        {{ 10 + 3 }}
+        <div class="container">
+            <div class="row">
+                <div class="column col-md-10">
+                    <h2><b><u><center> Code Snippets </center> </u> </b> </h2>
+                </div>
+                <a class="column col-md-2" href="#admin">admin</a>
+            </div>
+            <div class="row">   
+                <div class="column col-sm-2">
+                    <h3>Categories</h3>
+                    <li>C#</li>
+                    <li>Java</li>
+                    <li>Python</li>
+                </div>
+                <div class="column col-sm-10">
+                    <div ng-view></div>
+                </div>
+            </div>
+        </div>
+        <script src="scripts\adal.js"></script>
+        <script src="scripts\adal-angular.js"></script>
+        <script>
+            angular.module('CodeSnip', ['ngRoute', 'AdalAngular'])
+            .config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider'], 
+            function($routeProvider, $httpProvider, adalProvider){
+                $routeProvider
+                .when("/", {
+                    templateUrl: 'index.html',
+                    requireADLogin:true
+                })
+                .when("/test", {
+                    templateUrl: 'test.html',
+                    requireADLogin:true
+                })
+                .when("/admin",{
+                    templateUrl:'admin/addSnip.html',
+                    requireADLogin:true
+                });
+            });
+        </script>
     </body>
 </html>
