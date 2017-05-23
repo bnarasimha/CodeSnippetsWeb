@@ -5,6 +5,9 @@ function($routeProvider, $httpProvider, adalProvider){
     .when("/", {
         templateUrl: 'user/home.html'
     })
+    .when("/logout", {
+        templateUrl: 'logout.html'
+    })
     .when("/admin",{
         templateUrl:'admin/addSnip.html',
         requireADLogin:true
