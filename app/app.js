@@ -3,16 +3,16 @@ codeSnip.config(['$routeProvider','$httpProvider', 'adalAuthenticationServicePro
 function($routeProvider, $httpProvider, adalProvider){
     $routeProvider
     .when("/", {
-        templateUrl: 'user/home.html'
+        templateUrl: 'user/listCodeSnippets.html'
     })
     .when("/logout", {
         templateUrl: 'logout.html'
     })
     .when("/admin",{
-        templateUrl:'admin/listCodeSnippets.html'
+        templateUrl:'user/listCodeSnippets.html'
     })
     .when('/snipDetail/:ID',{
-        templateUrl: 'admin/snipDetail.html',
+        templateUrl: 'user/snipDetail.html',
         controller: 'snipDetailController'
     })
     .when("/addSnip",{

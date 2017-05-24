@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title> Welcome to CodeSnippets! </title>
+    <title> CodeSnippets! </title>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
@@ -14,8 +14,8 @@
     <script src="scripts/adal-angular.js"></script>
     <script src="app.js"></script>
     <script src="admin/addSnipController.js"></script>
-    <script src="admin/listCodeSnippetsController.js"></script>
-     <script src="admin/snipDetailController.js"></script>
+    <script src="user/listCodeSnippetsController.js"></script>
+     <script src="user/snipDetailController.js"></script>
 </head>
 
 <body ng-app="codeSnip">
@@ -40,9 +40,10 @@
         <div class="row" style="background:#94cdc4; height:550px;" >
             <div class="col-sm-2">
                 <h3>Categories</h3>
-                <li>C#</li>
-                <li>Java</li>
-                <li>Python</li>
+                <div>&nbsp;</div>
+                <a href="#category"><h4><li><b>C#</b></li></h4></a>
+                <a href="#category"><h4><li><b>Java</b></li></h4></a>
+                <a href="#category"><h4><li><b>Python</b></li></h4></a>
             </div>
             <div class="col-sm-10" style="background:#94cdc4">
                 <div ng-view></div>
