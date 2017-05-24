@@ -9,8 +9,7 @@ function($routeProvider, $httpProvider, adalProvider){
         templateUrl: 'logout.html'
     })
     .when("/admin",{
-        templateUrl:'admin/addSnip.html',
-        requireADLogin:true
+        templateUrl:'admin/addSnip.html'
     });
 
     adalProvider.init({

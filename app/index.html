@@ -15,14 +15,19 @@
     <body ng-app="codeSnip">
         <div class="container">
             <div class="row">
-                <div class="column col-md-8">
+                <div class="col-md-4"></div>
+                <div class="column col-md-4">
                     <h2><b><u><center> Code Snippets </center> </u> </b> </h2>
                 </div>
                 <div class="column col-md-4">
-                    <a href="#admin">admin</a>
-                    <a href="#/">home</a>
-                    Welcome <span id="userName"></span>
-                    <a href="logout.html">Logout</a>
+                    <div class="row">
+                        Welcome <span id="userName"></span>
+                    </div>
+                    <div class="row">
+                        <a href="#admin">admin</a>
+                        <a href="#/">home</a>
+                        <a href="logout.html">Logout</a>
+                    </div>
                 </div>
             </div>
             <div class="row">   
@@ -37,5 +42,8 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.getElementById('userName').innerHTML = sessionStorage.userName;
+        </script>
     </body>
 </html>
