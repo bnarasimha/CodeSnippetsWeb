@@ -1,0 +1,14 @@
+
+<div>
+    <!--<div class="row">
+        <a href="#addSnip">Add Code Snippet</a>
+    </div>-->
+    <div class="row" style="height:20px;"></div>
+    <div class="row"></div>
+        <div class="col-sm-12" ng-controller="listCodeSnippetsController">
+            <div class="row" ng-repeat="snip in codeSnippets" style="background:lightblue; margin:3px">
+                <h4><a href="#snipDetail/{{snip.id}}">{{snip.title}}</a></h4>
+            </div>
+        </div>
+    </div>
+</div>

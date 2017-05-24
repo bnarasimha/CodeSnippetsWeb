@@ -9,7 +9,14 @@ function($routeProvider, $httpProvider, adalProvider){
         templateUrl: 'logout.html'
     })
     .when("/admin",{
-        templateUrl:'admin/addSnip.html'
+        templateUrl:'admin/listCodeSnippets.html'
+    })
+    .when('/snipDetail/:ID',{
+        templateUrl: 'admin/snipDetail.html',
+        controller: 'snipDetailController'
+    })
+    .when("/addSnip",{
+        templateUrl: 'admin/addSnip.html'
     });
 
     adalProvider.init({
