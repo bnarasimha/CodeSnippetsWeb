@@ -16,12 +16,14 @@
     </div>
 
     <div class="row">
-        <hr>
         <div class="col-sm-12" ng-controller="listCodeSnippetsController">
-            <div class="row" ng-repeat="snip in codeSnippets">
-                <h4><a href="#snipDetail/{{snip.id}}">{{snip.title}}</a></h4>
-                <hr>
-            </div>
+            <table class="table table-bordered table-inverse">
+                <tr class="row" ng-repeat="snip in codeSnippets">
+                    <td class="column">
+                        <h4><b><a href="#snipDetail/{{snip.id}}">{{snip.title}}</a></b></h4>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
