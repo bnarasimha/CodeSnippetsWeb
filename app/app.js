@@ -9,7 +9,7 @@ function($routeProvider, $httpProvider, adalProvider){
         templateUrl: 'logout.html'
     })
     .when("/admin",{
-        templateUrl:'user/listCodeSnippets.html'
+        templateUrl:'admin/admin.html'
     })
     .when('/snipDetail/:ID',{
         templateUrl: 'user/snipDetail.html',

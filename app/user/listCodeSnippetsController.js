@@ -1,4 +1,5 @@
 (function(){
+
     'use strict'
 
     function listCodeSnippetsController($scope){
@@ -7,4 +8,5 @@
     }
 
     angular.module('codeSnip').controller('listCodeSnippetsController', listCodeSnippetsController);
+
 })();
