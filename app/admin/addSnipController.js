@@ -5,7 +5,10 @@ angular.module('codeSnip').controller('addSnipCtrl', function($scope, $http){
         
         $http.post('http://localhost:8082/api/addCodeSnippet', codeSnippet)
         .success(function(data){
-            console.log('Code snippet added');
+            alert('Added Successfully');
+            $scope.language = '';
+            $scope.title = '';
+            $scope.codeSnip = '';
         })
         .error(function(data) {
             console.log('Error: ' + data);
