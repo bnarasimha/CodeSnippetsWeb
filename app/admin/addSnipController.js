@@ -5,13 +5,15 @@ angular.module('codeSnip').controller('addSnipCtrl', function($scope, $http){
         
         $http.post('http://localhost:8082/api/addCodeSnippet', codeSnippet)
         .success(function(data){
-            alert('Added Successfully');
-            $scope.language = '';
-            $scope.title = '';
-            $scope.codeSnip = '';
+            console.log('Added successfully')
         })
         .error(function(data) {
             console.log('Error: ' + data);
         });
+
+        alert('Added Successfully');
+        $scope.language = '';
+        $scope.title = '';
+        $scope.codeSnip = '';
     };
 });

@@ -15,10 +15,10 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-12" ng-controller="listCodeSnippetsController">
+        <div class="col-sm-12" ng-controller="listCodeSnippetsController" ng-init="GetCodeSnippets();">
             <table class="table table-bordered table-inverse">
                 <tr class="row" ng-repeat="snip in codeSnippets">
-                    <td class="column">
+                    <td class="col-md-12">
                         <h4><b><a href="#snipDetail/{{snip._id}}">{{snip.title}}</a></b></h4>
                     </td>
                 </tr>
