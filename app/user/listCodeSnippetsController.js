@@ -16,7 +16,7 @@
         };
 
          $scope.SearchCodeSnippets = function(){
-
+             alert($scope.SearchText);
             $http.get('http://localhost:8082/api/searchCodeSnippets/' + $scope.SearchText)
             .success(function(data){
                 console.log('search success');
@@ -26,6 +26,21 @@
                 console.log(err);
             });
         }
+
+        $scope.CodeSnippetsByLanguage = function(language){
+            if(language == 'All'){
+                $scope.GetCodeSnippets();
+            }
+            else{
+                $http.get('http://localhost:8082/api/CodeSnippets/language/' + language)
+                .success(function(data){
+                    $scope.codeSnippets = data;
+                })
+                .error(function(err){
+                    console.log(err);
+                })
+            }
+        };
     };
 
     angular.module('codeSnip').controller('listCodeSnippetsController', listCodeSnippetsController);

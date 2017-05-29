@@ -1,6 +1,10 @@
 angular.module('codeSnip').controller('addSnipCtrl', function($scope, $http){
     $scope.Submit = function(){
-        var codeSnippet = {language:$scope.language, title: $scope.title, codesnippet:$scope.codeSnip}; 
+        var codeSnippet = {
+            language:$scope.language.trim(), 
+            title: $scope.title, 
+            codesnippet:$scope.codeSnip
+        }; 
         console.log(codeSnippet);
         
         $http.post('http://localhost:8082/api/addCodeSnippet', codeSnippet)
