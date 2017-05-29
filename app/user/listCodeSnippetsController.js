@@ -16,7 +16,6 @@
         };
 
          $scope.SearchCodeSnippets = function(){
-             alert($scope.SearchText);
             $http.get('http://localhost:8082/api/searchCodeSnippets/' + $scope.SearchText)
             .success(function(data){
                 console.log('search success');
