@@ -23,11 +23,11 @@
             <h5><b><a href="#addSnip">Add Code Snippet</a></b></h5>
         </div>
     </div>
-
+    <br>
     <div class="row">
-        <div class="col-sm-12" ng-init="GetCodeSnippets();">
-            <table class="table table-bordered table-inverse">
-                <tr class="row" ng-repeat="snip in codeSnippets">
+        <div class="col-sm-12 table-responsive" ng-init="GetCodeSnippets();">
+            <table class="table table-condensed">
+                <tr class="row " ng-repeat="snip in codeSnippets">
                     <td class="col-md-12">
                         <h4><b><a href="#snipDetail/{{snip._id}}">{{snip.title}}</a></b></h4>
                     </td>
