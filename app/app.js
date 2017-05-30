@@ -12,7 +12,7 @@ function($routeProvider, $httpProvider, adalProvider){
         templateUrl:'admin/admin.html'
     })
     .when('/snipDetail/:ID',{
-        templateUrl: 'user/snipDetail.html',
+        templateUrl: 'user/codesnippetdetail/snipDetail.html',
         controller: 'snipDetailController'
     })
     .when("/addSnip",{
