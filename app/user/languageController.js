@@ -1,14 +1,8 @@
 (function(){
 
-    'use strict'
-    
-    function languageController($scope){
-        $scope.languages = [{'languageId':'1', 'languageName':'All'},
-                               {'languageId':'2', 'languageName':'C#'},
-                               {'languageId':'3', 'languageName':'Java'},
-                               {'languageId':'4', 'languageName':'Python'}];
+    function languageController($scope, languageService){
+       languageService.getLanguages();
     };
 
-    angular.module('codeSnip').controller('languageController', languageController);
-
+    angular.module('codeSnip').controller('languageController', ['$scope','languageService', languageController]);
 })();
