@@ -3,7 +3,7 @@ codeSnip.config(['$routeProvider','$httpProvider', 'adalAuthenticationServicePro
 function($routeProvider, $httpProvider, adalProvider){
     $routeProvider
     .when("/", {
-        templateUrl: 'user/listCodeSnippets.html'
+        templateUrl: 'user/codesnippets/listCodeSnippets.html'
     })
     .when("/logout", {
         templateUrl: 'logout.html'
