@@ -1,3 +1,12 @@
+<script>
+    document.getElementById("SearchInput").onkeydown = function(e){
+        if(e.keyCode == 13){
+            var searchText = document.getElementById('SearchInput').text;
+            angular.element(document.getElementById('SearchButton')).scope().SearchCodeSnippets(searchText);
+        }
+     };
+</script>
+
 <div class="container-fluid" ng-controller="listCodeSnippetsController">
     <div class="row">&nbsp;</div>
 
