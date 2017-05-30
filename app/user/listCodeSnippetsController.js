@@ -16,15 +16,18 @@
         };
 
          $scope.SearchCodeSnippets = function(){
-             alert($scope.SearchText);
-            $http.get('http://localhost:8082/api/searchCodeSnippets/' + $scope.SearchText)
-            .success(function(data){
-                console.log('search success');
-                $scope.codeSnippets = data;
-            })
-            .error(function(err){
-                console.log(err);
-            });
+             if($scope.SearchText == undefined || $scope.SearchText == ''){
+                 $scope.GetCodeSnippets();
+             }
+             else{
+                $http.get('http://localhost:8082/api/searchCodeSnippets/' + $scope.SearchText)
+                .success(function(data){
+                    $scope.codeSnippets = data;
+                })
+                .error(function(err){
+                    console.log(err);
+                });
+             }
         }
 
         $scope.CodeSnippetsByLanguage = function(language){
