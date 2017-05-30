@@ -2,17 +2,16 @@
 
     'use strict'
 
-    function listCodeSnippetsController($scope, $http){
+    function listCodeSnippetsController($scope, $http, listCodeSnippetsService){
+
+        $scope.$on('filterByLanguage', function(event, value){
+            $scope.CodeSnippetsByLanguage(value);
+        });
 
         $scope.GetCodeSnippets = function(){
-            $http.get('http://localhost:8082/api/codeSnippets')
-            .success(function(data){
-                console.log('get success');
-                $scope.codeSnippets = data;
+            listCodeSnippetsService.GetCodeSnippets().then(function(response){
+                $scope.codeSnippets = response.data;
             })
-            .error(function(err){
-                console.log(err);
-            });
         };
 
          $scope.SearchCodeSnippets = function(){
@@ -20,13 +19,9 @@
                  $scope.GetCodeSnippets();
              }
              else{
-                $http.get('http://localhost:8082/api/searchCodeSnippets/' + $scope.SearchText)
-                .success(function(data){
-                    $scope.codeSnippets = data;
+                 listCodeSnippetsService.SearchCodeSnippets($scope.SearchText).then(function(response){
+                    $scope.codeSnippets = response.data;
                 })
-                .error(function(err){
-                    console.log(err);
-                });
              }
         }
 
@@ -35,17 +30,13 @@
                 $scope.GetCodeSnippets();
             }
             else{
-                $http.get('http://localhost:8082/api/CodeSnippets/language/' + language)
-                .success(function(data){
-                    $scope.codeSnippets = data;
-                })
-                .error(function(err){
-                    console.log(err);
+                listCodeSnippetsService.GetCodeSnippetsByLanguage(language).then(function(response){
+                    $scope.codeSnippets = response.data;
                 })
             }
         };
     };
 
-    angular.module('codeSnip').controller('listCodeSnippetsController', listCodeSnippetsController);
+    angular.module('codeSnip').controller('listCodeSnippetsController', ['$scope', '$http', 'listCodeSnippetsService', listCodeSnippetsController]);
 
 })();

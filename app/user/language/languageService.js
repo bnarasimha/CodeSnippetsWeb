@@ -5,7 +5,7 @@
         function languageService($http){
             return{
                 getlanguages : function(){
-                    return $http.get('http://localhost:8082/api/languages')
+                    return $http.get('http://localhost:8082/api/languages');
                 }
             }
         };
