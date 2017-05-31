@@ -15,7 +15,7 @@ function($routeProvider, $httpProvider, adalProvider){
         templateUrl: 'user/codesnippetdetail/codeSnipDetail.html'
     })
     .when("/addSnip",{
-        templateUrl: 'admin/addSnip.html'
+        templateUrl: 'user/addcodesnippet/addCodeSnippet.html'
     });
 
     adalProvider.init({
