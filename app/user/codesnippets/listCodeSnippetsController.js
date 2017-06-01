@@ -4,13 +4,23 @@
 
     function listCodeSnippetsController($scope, $http, listCodeSnippetsService){
 
+        $scope.currentPage = 1;
+        $scope.numPerPage = 5;
+        $scope.maxSize = 5;
+        
         $scope.$on('filterByLanguage', function(event, value){
             $scope.CodeSnippetsByLanguage(value);
         });
 
-        $scope.GetCodeSnippets = function(){
+        $scope.GetCodeSnippets = function(){            
             listCodeSnippetsService.GetCodeSnippets().then(function(response){
-                $scope.codeSnippets = response.data;
+                $scope.codeSnippetsReceived = response.data;
+
+                $scope.$watch('currentPage + numPerPage', function(){
+                    var begin = (($scope.currentPage - 1) * $scope.numPerPage);
+                    var end = begin + $scope.numPerPage;
+                    $scope.codeSnippets = $scope.codeSnippetsReceived.slice(begin, end);
+                })
             })
         };
 

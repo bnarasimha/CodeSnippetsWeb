@@ -1,4 +1,4 @@
-var codeSnip = angular.module('codeSnip', ['ngRoute','AdalAngular']);
+var codeSnip = angular.module('codeSnip', ['ngRoute','AdalAngular', 'ui.bootstrap']);
 codeSnip.config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
 function($routeProvider, $httpProvider, adalProvider){
     $routeProvider
