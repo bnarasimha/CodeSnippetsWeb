@@ -26,16 +26,16 @@
     <br>
     <div class="row">
         <div class="col-sm-12 table-responsive" ng-init="GetCodeSnippets();">
-            <div style="height:300px; border:solid 2px gray">
-                <table class="table table-condensed table-bordered">
-                    <tr class="row " ng-repeat="snip in codeSnippets">
-                        <td class="col-md-12">
-                            <h4><b>
+            <div style="height:300px; border:solid 2px #082a12">
+                <div class="table table-condensed">
+                    <div class="row " ng-repeat="snip in codeSnippets">
+                        <div class="col-md-12">
+                            <h3><b>&nbsp;
                                 <a href="#snipDetail/{{snip._id}}">{{snip.title}}</a>
-                            </b></h4>
-                        </td>
-                    </tr>
-                </table>
+                            </b></h3>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div align="center">
                 <pagination 
