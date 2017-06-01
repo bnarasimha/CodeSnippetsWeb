@@ -42,7 +42,8 @@
             }
             else{
                 listCodeSnippetsService.GetCodeSnippetsByLanguage(language).then(function(response){
-                    $scope.codeSnippets = response.data;
+                    $scope.codeSnippetsReceived = response.data;
+                    $scope.codeSnippets = $scope.codeSnippetsReceived;
                 })
             }
         };
