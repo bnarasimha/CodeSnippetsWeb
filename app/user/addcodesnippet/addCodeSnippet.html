@@ -4,9 +4,8 @@
         <div class="form-group col-md-2">
             <label for="language">Language</label>
             <select id="language" class="form-control" ng-model="language" title="Select Language">
-                <option> C# </option>
-                <option> Java </option>
-                <option> Python </option>
+                <option value="">Select</option>
+                <option ng-repeat="language in languages" value="{{language.languageName}}">{{language.languageName}}</option>
             </select>
         </div>
         <div class="form-group col-md-6">
@@ -18,7 +17,10 @@
             <textarea id="codeSnip" class="form-control" rows="10" cols="100" ng-model="codeSnip"></textarea>
         </div>
         <div class="form-group col-md-10">
-            <center><button type="button" class="btn btn-primary" ng-click="Submit();">Submit</button></center>
+            <center>
+                <button type="button" class="btn btn-primary" ng-click="Submit();">Submit</button>
+                 <button type="button" class="btn btn-primary" ng-click="Back();">Back</button>
+            </center>
         </div>
     </form>
 </div>

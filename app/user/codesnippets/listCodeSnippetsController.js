@@ -5,7 +5,7 @@
     function listCodeSnippetsController($scope, $http, listCodeSnippetsService){
 
         $scope.currentPage = 1;
-        $scope.numPerPage = 5;
+        $scope.numPerPage = 6;
         $scope.maxSize = 5;
         
         $scope.$on('filterByLanguage', function(event, value){
@@ -30,7 +30,8 @@
              }
              else{
                  listCodeSnippetsService.SearchCodeSnippets($scope.SearchText).then(function(response){
-                    $scope.codeSnippets = response.data;
+                    $scope.codeSnippetsReceived = response.data;
+                    $scope.codeSnippets = $scope.codeSnippetsReceived;
                 })
              }
         }

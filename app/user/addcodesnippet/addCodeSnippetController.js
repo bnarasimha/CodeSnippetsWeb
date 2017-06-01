@@ -2,8 +2,17 @@
 
     'use strict'
 
-    function addCodeSnippetController($scope, $http, addCodeSnippetService) {
-        $scope.Submit = function () {
+    function addCodeSnippetController($scope, $http, addCodeSnippetService, languageService) {
+        
+            languageService.getlanguages().then(function(response){
+                $scope.languages = response.data;
+            });
+
+            $scope.Back = function(){
+                location.href = 'http://localhost:8080/#/';
+            }
+
+            $scope.Submit = function () {
             var codeSnippet = {
                 language: $scope.language,
                 title: $scope.title,
@@ -11,7 +20,7 @@
             };
 
             addCodeSnippetService.addCodeSnippet(codeSnippet).then(function (response) {
-
+                console.log('Added successfully');
             })
 
             alert('Added Successfully');
@@ -25,5 +34,5 @@
         };
     };
     
-    angular.module('codeSnip').controller('addCodeSnippetController', ['$scope', '$http', 'addCodeSnippetService', addCodeSnippetController])
+    angular.module('codeSnip').controller('addCodeSnippetController', ['$scope', '$http', 'addCodeSnippetService', 'languageService', addCodeSnippetController])
 })();
