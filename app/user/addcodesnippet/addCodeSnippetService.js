@@ -2,14 +2,14 @@
 
     'use strict'
 
-    function addCodeSnippetService($http) {
+    function addCodeSnippetService($http, ApiUrl) {
         return {
             addCodeSnippet: function (codeSnippet) {
-                return $http.post('http://localhost:8082/api/addCodeSnippet', codeSnippet);
+                return $http.post(ApiUrl + '/addCodeSnippet', codeSnippet);
             }
         };
     };
 
-    angular.module('codeSnip').factory('addCodeSnippetService', ['$http',  addCodeSnippetService]);
+    angular.module('codeSnip').factory('addCodeSnippetService', ['$http','ApiUrl',  addCodeSnippetService]);
 }
 )();
