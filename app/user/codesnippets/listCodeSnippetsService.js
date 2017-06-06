@@ -2,19 +2,19 @@
     
     'use strict'
 
-    function listCodeSnippetsService($http){
+    function listCodeSnippetsService($http, ApiUrl){
         return{
             GetCodeSnippets : function(){
-                    return $http.get('http://localhost:8082/api/codeSnippets');
+                    return $http.get(ApiUrl+ '/codeSnippets');
             },
             SearchCodeSnippets : function(searchText){
-                return $http.get('http://localhost:8082/api/searchCodeSnippets/' + searchText)
+                return $http.get(ApiUrl + '/searchCodeSnippets/' + searchText)
             },
             GetCodeSnippetsByLanguage : function(language){
-                return $http.get('http://localhost:8082/api/CodeSnippets/language/' + language);
+                return $http.get(ApiUrl + '/CodeSnippets/language/' + language);
             }
         }
     };
 
-    angular.module('codeSnip').factory('listCodeSnippetsService', ['$http', listCodeSnippetsService]);
+    angular.module('codeSnip').factory('listCodeSnippetsService', ['$http', 'ApiUrl', listCodeSnippetsService]);
 })();

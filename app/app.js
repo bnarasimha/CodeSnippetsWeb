@@ -1,4 +1,7 @@
 var codeSnip = angular.module('codeSnip', ['ngRoute','AdalAngular', 'ui.bootstrap']);
+
+codeSnip.constant('ApiUrl', 'http://localhost:8082/api');
+
 codeSnip.config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
 function($routeProvider, $httpProvider, adalProvider){
     $routeProvider
