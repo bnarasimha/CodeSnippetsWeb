@@ -1,6 +1,6 @@
 var codeSnip = angular.module('codeSnip', ['ngRoute','AdalAngular', 'ui.bootstrap']);
 
-codeSnip.constant('ApiUrl', 'http://ec2-52-14-209-239.us-east-2.compute.amazonaws.com/api');
+codeSnip.constant('ApiUrl', 'http://ec2-52-14-209-239.us-east-2.compute.amazonaws.com:81/api');
 
 codeSnip.config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
 function($routeProvider, $httpProvider, adalProvider){
