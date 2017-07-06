@@ -1,8 +1,16 @@
 {
-  "name": "CodeSnip",
+  "name": "codesnip",
   "version": "0.0.1",
   "description": "Code Snippets for All",
   "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://bnarasimha21@bitbucket.org/codesnippers/codesnip.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
   "devDependencies": {
     "angular-local-storage": "^0.6.0",
     "bootstrap": "^3.3.7",
