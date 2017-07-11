@@ -14,6 +14,11 @@ gulp.task('config', function(){
     .pipe(gulp.dest('./app/scripts'));
 })
 
-gulp.task('default', ["config","deploy"], function(){
+gulp.task('deploysh', function(){
+    gulp.src(['deploy.sh'])
+    .pipe(gulp.dest('dest/'))
+})
+
+gulp.task('default', ["config", "deploysh", "deploy"], function(){
     
 })
