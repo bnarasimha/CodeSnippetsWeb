@@ -19,6 +19,11 @@ gulp.task('deploysh', function(){
     .pipe(gulp.dest('dest/'))
 })
 
-gulp.task('default', ["config", "deploysh", "deploy"], function(){
+gulp.task('gulpfile', function(){
+    gulp.src(['gulpfile.js'])
+    .pipe(gulp.dest('dest/'))
+})
+
+gulp.task('default', ["config", "deploysh", "gulpfile", "deploy"], function(){
     
 })
