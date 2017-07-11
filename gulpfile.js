@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var zip = require('gulp-zip');
+var gulpNgConfig = require('gulp-ng-config')
 
 gulp.task('deploy', function(){
     return gulp.src(['**', '!node_modules/**', '!dest', '!gulpfile.js'])
@@ -7,6 +8,12 @@ gulp.task('deploy', function(){
     .pipe(gulp.dest('dest/'))
 });
 
-gulp.task('default', function(){
-    gulp.run('deploy');
+gulp.task('config', function(){
+    gulp.src('app/config/config.json')
+    .pipe(gulpNgConfig("codeSnip", {environment:process.env.NODE_ENV}))
+    .pipe(gulp.dest('./app/scripts'));
+})
+
+gulp.task('default', ["config","deploy"], function(){
+    
 })
