@@ -3,7 +3,7 @@ var zip = require('gulp-zip');
 var gulpNgConfig = require('gulp-ng-config')
 
 gulp.task('deploy', function(){
-    return gulp.src(['**', '!node_modules/**', '!dest', '!gulpfile.js'])
+    return gulp.src(['**', '!node_modules/**', '!dest'])
     .pipe(zip('deploy.zip'))
     .pipe(gulp.dest('dest/'))
 });
