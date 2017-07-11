@@ -10,7 +10,10 @@ gulp.task('deploy', function(){
 
 gulp.task('config', function(){
     gulp.src('app/config/config.json')
-    .pipe(gulpNgConfig("codeSnip", {environment:process.env.NODE_ENV}))
+    .pipe(gulpNgConfig("codeSnip", {
+        environment:process.env.NODE_ENV,
+        createModule:false
+    }))
     .pipe(gulp.dest('./app/scripts'));
 })
 
