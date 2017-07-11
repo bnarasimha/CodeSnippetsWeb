@@ -5,4 +5,4 @@ sudo rm -r node_modules;
 sudo unzip -o ~/artifacts/main/deploy.zip; 
 sudo chmod 777 node_modules; 
 sudo chmod -R 777 app;
-npm install; 
+sudo npm install; 
