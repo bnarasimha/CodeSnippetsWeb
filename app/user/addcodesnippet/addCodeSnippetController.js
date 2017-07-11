@@ -4,12 +4,14 @@
 
     function addCodeSnippetController($scope, $http, addCodeSnippetService, languageService) {
         
+            var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
+
             languageService.getlanguages().then(function(response){
                 $scope.languages = response.data;
             });
 
             $scope.Back = function(){
-                location.href = 'http://localhost:8080/#/';
+                location.href = hostUrl;
             }
 
             $scope.Submit = function () {

@@ -1,11 +1,12 @@
 (function(){
     'use strict'
 
-    function codeSnipDetailController($scope, $routeParams, $http, codeSnipDetailService){
+    function codeSnipDetailController($scope, $routeParams, $http, $location, codeSnipDetailService){
         $scope.ID = $routeParams.ID;
-
+        var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
+        
         $scope.Back = function(){
-            location.href = 'http://localhost:8080/#/';
+            location.href = hostUrl;
         }
 
         codeSnipDetailService.getCodeSnipDetail($scope.ID).then(function(response){
@@ -21,5 +22,5 @@
          }
     }    
 
-    angular.module('codeSnip').controller('codeSnipDetailController', ['$scope', '$routeParams', '$http', 'codeSnipDetailService', codeSnipDetailController]);
+    angular.module('codeSnip').controller('codeSnipDetailController', ['$scope', '$routeParams', '$http', '$location', 'codeSnipDetailService', codeSnipDetailController]);
 })();

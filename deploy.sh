@@ -6,6 +6,6 @@ sudo unzip -o ~/artifacts/main/deploy.zip;
 sudo chmod 777 node_modules; 
 sudo chmod -R 777 app;
 sudo npm install; 
-gulp config
+gulp config;
 pm2 delete main;
 pm2 start server.js --name main;
