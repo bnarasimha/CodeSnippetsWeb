@@ -31,9 +31,7 @@
 
              function checkLoginState(){
                     FB.login(function(response){
-                        alert(response);
                         if(response.authResponse){
-                            console.log('Welcome! Fetching your information..');
                             FB.api('/me', {fields: 'email'}, function(response){
                                 sessionStorage.email = response.email;
                                 location.href = 'http://localhost:8080/#/'
