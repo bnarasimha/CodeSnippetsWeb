@@ -30,22 +30,26 @@
             }(document, 'script', 'facebook-jssdk'));
 
              function checkLoginState(){
-                    FB.getLoginStatus(function(response) {
-                        if(response.status == 'connected'){
-                            FB.api('/me', function(response){
-                                console.log(response.name);
-                                sessionStorage.userName = response.name;
-                            });
-                            location.href = 'http://localhost:8080/#/'
+                    FB.login(function(response){
+                        alert(response);
+                        if(response.authResponse){
+                            console.log('Welcome! Fetching your information..');
+                            FB.api('/me', {fields: 'email'}, function(response){
+                                sessionStorage.email = response.email;
+                                location.href = 'http://localhost:8080/#/'
+                            })
+                        }
+                        else{
+                            console.log('User not logged In');
                         }
                     });
                 }
         </script>
 
         <div class="container">
-            <div style="height:150px"></div>
+            <div style="height:100px"></div>
 
-            <div style="border:solid 1px gray" class="col-sm-12">
+            <div style="border:solid 1px gray" class="col-sm-8">
                 <div class="row" style="border:solid 1px gray; height:60px">
                     <div class="col-sm-12"><center><h3>Login to CodeSnippets</h3></center></div>
                 </div>
@@ -66,7 +70,7 @@
                             <div class="col-sm-12">
                                 <center>
                                     <div class="fb-login-button" data-width="100" data-max-rows="1" data-size="large"
-                                    data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" 
+                                    data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" 
                                     data-use-continue-as="false" onlogin="checkLoginState();">  
                                     </div>
                                     <!--<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>-->

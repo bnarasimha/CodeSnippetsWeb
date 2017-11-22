@@ -1,6 +1,6 @@
 {
     "local":{
-        "ApiUrl" : "http://localhost:81/api"
+        "ApiUrl" : "http://localhost:8081/api"
     },
     "test":{
         "ApiUrl" : "http://ec2-52-14-26-126.us-east-2.compute.amazonaws.com:81/api"    
