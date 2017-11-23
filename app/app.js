@@ -9,12 +9,6 @@ function($routeProvider, $httpProvider, adalProvider){
         templateUrl: 'user/codesnippets/listCodeSnippets.html',
         requireADlogin :true
     })
-    .when("/logout", {
-        templateUrl: 'logout.html'
-    })
-    .when("/login", {
-        templateUrl: 'login.html'
-    })
     .when("/admin",{
         templateUrl:'admin/admin.html',
         requireADlogin :true

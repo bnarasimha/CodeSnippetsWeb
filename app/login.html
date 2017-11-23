@@ -14,11 +14,7 @@
                 xfbml      : true,
                 version    : 'v2.8'
                 });
-                FB.AppEvents.logPageView();   
-
-                FB.api('/me', function(response){
-                    console.log(JSON.stringify(response));
-                });
+                FB.AppEvents.logPageView();
             };
 
             (function(d, s, id){
@@ -45,41 +41,61 @@
         </script>
 
         <div class="container">
-            <div style="height:100px"></div>
-
-            <div style="border:solid 1px gray" class="col-sm-8">
-                <div class="row" style="border:solid 1px gray; height:60px">
-                    <div class="col-sm-12"><center><h3>Login to CodeSnippets</h3></center></div>
+            <div class="row" style="background:#082c42" ng-controller="homeController">
+                <div class="col-md-4"></div>
+                <div class="column col-md-4">`
+                    <div class="page-header"><h2><b><center> <font color="white">Code Snippets</font> </div> </center> </b> </h2>
                 </div>
-                <div class="row" >
-                    <div class="column col-sm-12">    
-                        
-                        <div class="row">&nbsp;</div>
-
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center><a class="btn btn-primary btn-md" href="../#admin">Office 365</a></center>
-                            </div>
-                        </div>
-
-                        <div class="row">&nbsp;</div>
-
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
-                                    <div class="fb-login-button" data-width="100" data-max-rows="1" data-size="large"
-                                    data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" 
-                                    data-use-continue-as="false" onlogin="checkLoginState();">  
-                                    </div>
-                                    <!--<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>-->
-                                </center>  
-                            </div>
-                        </div> 
-
-                        <div class="row">&nbsp;</div>
-
+                <div class="col-md-1"></div>
+                <div class="column col-md-3">
+                    <div class="row" align="right">
+                        <!-- <font color="white"><b>Welcome <span id="userName1">{{userName}}</span></b></font> -->
+                    </div>
+                    <div class="row" align="right">
+                        <!-- <a href="#admin" ng-hide="!isAdmin">Admin</a>&nbsp;&nbsp;&nbsp;
+                        <a href="#/">Home</a>&nbsp;&nbsp;&nbsp;
+                        <a href="logout.html" ng-hide="!isUserLoggedIn">Logout</a>&nbsp; -->
                     </div>
                 </div>
+            </div>
+            <div class="row" style="border:solid 1px gray; background:#94cdc4; height:470px;">
+                <div style="height:100px"&nbsp;></div>
+                <center>
+                    <div style="border:solid 2px gray; width:500px">
+                        <div class="row" >
+                            <center><h3>Login to CodeSnippets</h3></center>
+                        </div>
+                        <div class="row" >
+                            <div class="column col-sm-12">    
+                                
+                                <div class="row">&nbsp;</div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <center><a class="btn btn-primary btn-md" href="../#admin">Office 365</a></center>
+                                    </div>
+                                </div>
+
+                                <div class="row">&nbsp;</div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <center>
+                                            <div class="fb-login-button" data-width="100" data-max-rows="1" data-size="large"
+                                            data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" 
+                                            data-use-continue-as="false" onlogin="checkLoginState();">  
+                                            </div>
+                                            <!-- <div><button class="button">Logout</button></div> -->
+                                        </center>  
+                                    </div>
+                                </div> 
+
+                                <div class="row">&nbsp;</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </center>
             </div>
         </div>
     </body>

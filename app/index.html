@@ -43,7 +43,7 @@
                 <div class="row" align="right">
                     <a href="#admin" ng-hide="!isAdmin">Admin</a>&nbsp;&nbsp;&nbsp;
                     <a href="#/">Home</a>&nbsp;&nbsp;&nbsp;
-                    <!--<a href="logout.html">Logout</a>&nbsp;-->
+                    <a href="logout.html" ng-hide="!isUserLoggedIn">Logout</a>&nbsp;
                 </div>
             </div>
         </div>
@@ -60,9 +60,6 @@
             </div>
         </div>
     </div>
-    <script>
-        // document.getElementById('userName').innerHTML = sessionStorage.userName;
-    </script>
 </body>
 
 </html>
