@@ -1,0 +1,22 @@
+<div ng-controller="codeSnipDetailController" class="container-fluid">
+        &nbsp;
+        <div class="row">
+            <div class="col-md-12">
+                <input value="{{snipDetail.title}}" ></input>
+            </div>
+        </div>
+        &nbsp;
+        <div class="row" style="height:320px;overflow:scroll;">
+            <div class="col-sm-12">
+                <textarea cols="120" rows="20">{{snipDetail.codesnippet}}</textarea>
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="form-group col-md-10">
+            <div class="col-sm-12" align="center">
+                <button type="button" class="btn btn-primary" ng-click="Update();">Update</button>
+                
+                <a class="btn btn-primary" href="#snipDetail/{{ID}}">Back</a>
+            </div>
+        </div>
+</div>

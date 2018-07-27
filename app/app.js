@@ -20,6 +20,9 @@ function($routeProvider, $httpProvider, adalProvider){
     .when('/snipDetail/:ID',{
         templateUrl: 'user/codesnippetdetail/codeSnipDetail.html'
     })
+    .when('/editSnipDetail/:ID',{
+        templateUrl: 'user/codesnippetdetail/editCodeSnipDetail.html'
+    })
     .when("/addSnip",{
         templateUrl: 'user/addcodesnippet/addCodeSnippet.html'
     });
