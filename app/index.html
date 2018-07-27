@@ -11,9 +11,11 @@
     <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
     
     <script src="scripts/adal.js"></script>
-    <script src="scripts/adal-angular.js"></script>
+    <script src="scripts/adal-angular.js"></script> 
     <script src="app.js"></script>
-    <!-- <script src="scripts/config.js"></script> -->
+    <script src="user/home/homeService.js"></script>
+    <script src="user/home/homeController.js"></script>
+    <script src="scripts/config.js"></script>
 
     <script src="user/addcodesnippet/addCodeSnippetService.js"></script>
     <script src="user/addcodesnippet/addCodeSnippetController.js"></script>
@@ -27,20 +29,20 @@
 
 <body ng-app="codeSnip">
     <div class="container">
-        <div class="row" style="background:#082c42">
+        <div class="row" style="background:#082c42" ng-controller="homeController">
             <div class="col-md-4"></div>
-            <div class="column col-md-4">
+            <div class="column col-md-4">`
                 <div class="page-header"><h2><b><center> <font color="white">Code Snippets</font> </div> </center> </b> </h2>
             </div>
             <div class="col-md-1"></div>
             <div class="column col-md-3">
                 <div class="row" align="right">
-                    <font color="white"><b>Welcome <span id="userName1">Guest</span></b></font>
+                    <font color="white"><b>Welcome <span id="userName1">{{userName}}</span></b></font>
                 </div>
                 <div class="row" align="right">
-                    <a href="#admin">Admin</a>&nbsp;&nbsp;&nbsp;
+                    <a href="#admin" ng-hide="!isAdmin">Admin</a>&nbsp;&nbsp;&nbsp;
                     <a href="#/">Home</a>&nbsp;&nbsp;&nbsp;
-                    <!--<a href="logout.html">Logout</a>&nbsp;-->
+                    <a href="logout.html" ng-hide="!isUserLoggedIn">Logout</a>&nbsp;
                 </div>
             </div>
         </div>

@@ -1,0 +1,50 @@
+
+<div class="container-fluid" ng-controller="listCodeSnippetsController">
+    <div class="row">&nbsp;</div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <input type="text" class="form-control" id="SearchInput" ng-model="SearchText"></input>
+        </div>
+        <div class="col-md-1"><button class="btn btn-primary" id="SearchButton" ng-click="SearchCodeSnippets();">Search</button> </div>
+        <div class="col-md-6" align="right">
+            <h4><b><a href="#addSnip">Add Code Snippet</a></b></h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12 table-responsive" ng-init="GetCodeSnippets();">
+            <div style="height:300px; border:solid 2px #082a12;">
+                <div class="table table-condensed">
+                    <div class="bg-success">
+                        <div class="column col-sm-10">
+                            <h4><b>&nbsp;<span>Title</span></b></h4>
+                        </div>
+                        <div class="column col-sm-2">
+                            <h4><b>&nbsp;<span>Category</span></b></h4>
+                        </div>
+                    </div>
+                    <div class="row" ng-repeat="snip in codeSnippets">
+                        <div class="column col-sm-10">
+                            <h4><b>&nbsp;
+                                <a href="#snipDetail/{{snip._id}}">{{snip.title}}</a>
+                            </b></h4>
+                        </div>
+                        <div class="column col-sm-2">
+                            <b>{{snip.language}}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <pagination 
+                    items-per-page="numPerPage"
+                    ng-model="currentPage" 
+                    total-items="codeSnippetsReceived.length" 
+                    max-size="maxSize" 
+                    boundary-links="true">
+                </pagination>
+            </div>
+        </div>
+    </div>
+</div>

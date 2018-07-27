@@ -13,7 +13,8 @@
             FB.getLoginStatus(function(response) {                
                 if (response.status === 'connected') {
                     FB.logout(function(response) {
-                        location.href = 'login.html';
+                        sessionStorage.email = null;
+                        location.href = 'http://localhost:8080/login.html';
                     });
                 }})
             };
