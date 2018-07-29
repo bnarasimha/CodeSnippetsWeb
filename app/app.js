@@ -17,7 +17,7 @@ function($routeProvider, $httpProvider, adalProvider){
     .when("/addCategory",{
         templateUrl:'admin/category/addcategory.html'
     })
-    .when("/editCategory/:languageName",{
+    .when("/editCategory/:ID",{
         templateUrl:'admin/category/editcategory.html'
     })
     .when("/reviewcodesnippet", {

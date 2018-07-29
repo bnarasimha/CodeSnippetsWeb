@@ -1,22 +1,23 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="languageController">
     <div class="row">&nbsp;</div>
 
     <div class="row">
-        <h4><b><u>Add new category</u></b></h4>
+        <h4><b>Add New category</b></h4>
     </div>
     <div class="row">&nbsp;</div>
 
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label for="categoryName" >Category Name</label>
-            <input  id="categoryName" class="form-control" ng-model="categoryName">
+    <div class="row table-responsive" style="height:300px; border:solid 2px #082a12;"> 
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="categoryName"><h4> Category Name </h4></label>
+                <input  id="categoryName" class="form-control" ng-model="languageName">
+            </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-3">
-            <button type="button" class="btn btn-primary" ng-click="Submit();">Submit</button>
-            <a class="btn btn-primary" href="#manageCategories">Back</a>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <button type="button" class="btn btn-primary" ng-click="addCategory();">Submit</button>
+                <a class="btn btn-primary" href="#manageCategories">Back</a>
+            </div>
         </div>
     </div>
 </div>

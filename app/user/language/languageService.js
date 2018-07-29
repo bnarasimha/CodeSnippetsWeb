@@ -12,6 +12,12 @@
                 },
                 updateCategory : function(Category){
                     return $http.post(ApiUrl + '/updateCategory', Category);
+                },
+                getLanguageDetails : function(_id){
+                    return $http.get(ApiUrl + '/languageDetail/' + _id);
+                },
+                deleteCategory : function(_id){
+                    return $http.delete(ApiUrl + '/deleteCategory/' + _id);
                 }
             }
         };
