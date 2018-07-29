@@ -1,14 +1,18 @@
 <div ng-controller="codeSnipDetailController" class="container-fluid">
-        &nbsp;
-        <div class="row">
-            <div class="col-md-12">
-                <input value="{{snipDetail.title}}" ></input>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+            <div class="form-group col-md-2">
+                    <select id="language" class="form-control" ng-model="snipDetail.language" title="Select Language">
+                        <option ng-repeat="language in languages" value="{{language.languageName}}">{{language.languageName}}</option>
+                    </select>
+            </div>
+            <div class="col-md-8">
+                <input type="text" class="form-control" ng-model="snipDetail.title"></input>
             </div>
         </div>
-        &nbsp;
         <div class="row" style="height:320px;overflow:scroll;">
             <div class="col-sm-12">
-                <textarea cols="120" rows="20">{{snipDetail.codesnippet}}</textarea>
+                <textarea type="text" class="form-control" cols="120" rows="20" ng-model="snipDetail.codesnippet"></textarea>
             </div>
         </div>
         <div class="row">&nbsp;</div>
@@ -16,7 +20,7 @@
             <div class="col-sm-12" align="center">
                 <button type="button" class="btn btn-primary" ng-click="Update();">Update</button>
                 
-                <a class="btn btn-primary" href="#snipDetail/{{ID}}">Back</a>
+                <a class="btn btn-primary" href="#snipDetail/{{_id}}">Back</a>
             </div>
         </div>
 </div>

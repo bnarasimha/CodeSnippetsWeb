@@ -9,6 +9,9 @@
             },
             deleteCodeSnippet: function (codeSnippetId) {
                 return $http.delete(ApiUrl + '/deleteCodeSnippet/' + codeSnippetId);
+            },
+            updateCodeSnippet: function(codeSnippet) {
+                return $http.post(ApiUrl + '/editCodeSnippet', codeSnippet);                
             }
         }
     };
