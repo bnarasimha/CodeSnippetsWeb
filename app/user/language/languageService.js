@@ -6,6 +6,12 @@
             return{
                 getlanguages : function(){
                     return $http.get(ApiUrl + '/languages');
+                },
+                addCategory : function(Category){
+                    return $http.post(ApiUrl + '/addCategory', Category);
+                },
+                updateCategory : function(Category){
+                    return $http.post(ApiUrl + '/updateCategory', Category);
                 }
             }
         };

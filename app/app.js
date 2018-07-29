@@ -11,8 +11,14 @@ function($routeProvider, $httpProvider, adalProvider){
         templateUrl:'admin/admin.html',
         requireADlogin :true
     })
+    .when("/manageCategories", {
+        templateUrl: 'admin/category/listcategories.html'
+    })
     .when("/addCategory",{
-        templateUrl:'admin/addcategory.html'
+        templateUrl:'admin/category/addcategory.html'
+    })
+    .when("/editCategory/:languageName",{
+        templateUrl:'admin/category/editcategory.html'
     })
     .when("/reviewcodesnippet", {
         templateUrl: "admin/reviewcodesnippets.html"

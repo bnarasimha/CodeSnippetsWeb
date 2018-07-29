@@ -1,0 +1,23 @@
+<div class="container-fluid" ng-controller="languageController">
+        <div class="row">&nbsp;</div>
+    
+        <div class="row">
+            <h4><b><u>Update category</u></b></h4>
+        </div>
+        <div class="row">&nbsp;</div>
+    
+        <div class="row" ng-init="GetLanguageName();">
+            <div class="form-group col-md-6">
+                <label for="categoryName" >Category Name</label>
+                <input  id="categoryName" class="form-control" ng-model="LanguageName">
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="form-group col-md-3">
+                <button type="button" class="btn btn-primary" ng-click="Submit();">Update</button>
+                <a class="btn btn-primary" href="#manageCategories">Back</a>
+            </div>
+        </div>
+    </div>
+    
