@@ -38,7 +38,7 @@
                 console.log('Delete successfull');
             });
 
-            location.href = hostUrl; //'http://localhost:8080/#/'
+            location.href = hostUrl;
          }
     }    
 

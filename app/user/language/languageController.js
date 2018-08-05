@@ -53,7 +53,7 @@
             });
 
             alert('Delete successfull');
-            location.href = hostUrl + 'manageCategories'; //'http://localhost:8080/#/'
+            location.href = hostUrl + 'manageCategories';
          }
 
         $scope.GetCodeSnippetsByLanguage = function(language){
