@@ -3,19 +3,23 @@
 
     function homeController($scope, $rootScope, $location, homeService){
         var loginUrl = 'http://' + $location.host() + ':' + $location.port() + '/login.html';
-        //alert(sessionStorage.email == 0);
-        //alert(sessionStorage.email);
-        if(sessionStorage.email == 0){
+
+        if(sessionStorage.getItem("Email") == null){
             alert('Please login');
             location.href = loginUrl;
         }
         else{
             $rootScope.isUserLoggedIn = true;
-            $scope.userName = sessionStorage.email;
+            $scope.userName = sessionStorage.Email;
+            $scope.Name = sessionStorage.Name;
+            $scope.GreetingMessage = "Welcome " + sessionStorage.Name;
             
-            homeService.getUser(sessionStorage.email).then(function(response){
+            homeService.getUser(sessionStorage.Email).then(function(response){
                     if(response.data.isAdmin){
                         $rootScope.isAdmin = true;
+                    }
+                    else{
+                        $rootScope.isAdmin = false;
                     }
             })
         }

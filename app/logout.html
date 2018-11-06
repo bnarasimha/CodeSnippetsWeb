@@ -1,32 +1,28 @@
 <html>
-    <body>
-         <script>
-            window.fbAsyncInit = function() {
-                FB.init({
-                appId      : '1898644503730450',
-                cookie     : true,
-                xfbml      : true,
-                version    : 'v2.8'
-                });
-                FB.AppEvents.logPageView();
+<head>
+   <meta name="google-signin-client_id" content="833086076768-rbb5jpqvmpul8ms5k9o8n29sg30npl84.apps.googleusercontent.com">
+</head>
+<body>
+  <script>
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+      sessionStorage.removeItem("Email");
 
-            FB.getLoginStatus(function(response) {                
-                if (response.status === 'connected') {
-                    FB.logout(function(response) {
-                        sessionStorage.email = 0;
-                        location.href = 'http://localhost:8080/login.html';
-                    });
-                }})
-            };
+      var loginUrl = 'http://' + window.location.hostname + ':' + window.location.port + '/login.html';
+      location.href = loginUrl;
+    }
 
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        
-        </script>
-    </body>
+    function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+    }
+  </script>
+  <a href="#" onclick="signOut();">Sign out</a>
+
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+</body>
 </html>

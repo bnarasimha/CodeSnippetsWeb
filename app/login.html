@@ -6,56 +6,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>        
     </head>
     <body>
-         <script>
-            window.fbAsyncInit = function() {
-                FB.init({
-                appId      : '1898644503730450',
-                cookie     : true,
-                xfbml      : true,
-                version    : 'v2.8'
-                });
-                FB.AppEvents.logPageView();
-            };
-
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-
-             function checkLoginState(){
-                    FB.login(function(response){
-                        if(response.authResponse){
-                            FB.api('/me', {fields: 'email'}, function(response){
-                                sessionStorage.email = response.email;
-                                location.href = 'http://localhost:8080/#/'
-                            })
-                        }
-                        else{
-                            console.log('User not logged In');
-                        }
-                    });
-                }
+        <!-- Google Authentication starts-->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script>
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                sessionStorage.setItem("Name", profile.getName());
+                sessionStorage.setItem("Email", profile.getEmail());
+                
+                var homeUrl = 'http://' + window.location.hostname + ':' + window.location.port + '/#/';
+                location.href = homeUrl;
+            }
         </script>
-
+        <meta name="google-signin-client_id" content="833086076768-rbb5jpqvmpul8ms5k9o8n29sg30npl84.apps.googleusercontent.com">
+        <!-- Google Authentication ends -->
+        
         <div class="container">
             <div class="row" style="background:#082c42" ng-controller="homeController">
-                <div class="col-md-4"></div>
-                <div class="column col-md-4">`
+                <div class="column col-md-12">`
                     <div class="page-header"><h2><b><center> <font color="white">Code Snippets</font> </div> </center> </b> </h2>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="column col-md-3">
-                    <div class="row" align="right">
-                        <!-- <font color="white"><b>Welcome <span id="userName1">{{userName}}</span></b></font> -->
-                    </div>
-                    <div class="row" align="right">
-                        <!-- <a href="#admin" ng-hide="!isAdmin">Admin</a>&nbsp;&nbsp;&nbsp;
-                        <a href="#/">Home</a>&nbsp;&nbsp;&nbsp;
-                        <a href="logout.html" ng-hide="!isUserLoggedIn">Logout</a>&nbsp; -->
-                    </div>
                 </div>
             </div>
             <div class="row" style="border:solid 1px gray; background:#94cdc4; height:470px;">
@@ -66,26 +35,11 @@
                             <center><h3>Login to CodeSnippets</h3></center>
                         </div>
                         <div class="row" >
-                            <div class="column col-sm-12">    
-                                
-                                <div class="row">&nbsp;</div>
-
-                                <!-- <div class="row">
-                                    <div class="col-sm-12">
-                                        <center><a class="btn btn-primary btn-md" href="../#admin">Office 365</a></center>
-                                    </div>
-                                </div>
-
-                                <div class="row">&nbsp;</div> -->
-
+                            <div class="column col-sm-12">                                    
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <center>
-                                            <div class="fb-login-button" data-width="100" data-max-rows="1" data-size="large"
-                                            data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" 
-                                            data-use-continue-as="false" onlogin="checkLoginState();">  
-                                            </div>
-                                            <!-- <div><button class="button">Logout</button></div> -->
+                                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
                                         </center>  
                                     </div>
                                 </div> 
