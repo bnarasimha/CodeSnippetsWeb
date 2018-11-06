@@ -2,7 +2,7 @@
 
     'use strict'
 
-    function listCodeSnippetsController($scope, $http, listCodeSnippetsService){
+    function listCodeSnippetsController($rootScope, $scope, $http, listCodeSnippetsService){
 
         $scope.currentPage = 1;
         $scope.numPerPage = 6;
@@ -25,11 +25,12 @@
         };
 
          $scope.SearchCodeSnippets = function(){
+            var userId = $rootScope.userId;
              if($scope.SearchText == undefined || $scope.SearchText == ''){
-                 $scope.GetCodeSnippets();
+                 $scope.GetMyCodeSnippets();
              }
              else{
-                 listCodeSnippetsService.SearchCodeSnippets($scope.SearchText).then(function(response){
+                 listCodeSnippetsService.SearchCodeSnippets(userId,$scope.SearchText).then(function(response){
                     $scope.codeSnippetsReceived = response.data;
                     $scope.codeSnippets = $scope.codeSnippetsReceived;
                 })
@@ -37,11 +38,25 @@
         }
 
         $scope.CodeSnippetsByLanguage = function(language){
+            var userId = $rootScope.userId;
             if(language == 'All'){
+                $scope.GetMyCodeSnippets();
+            }
+            else{
+                listCodeSnippetsService.GetCodeSnippetsByLanguage(userId,language).then(function(response){
+                    $scope.codeSnippetsReceived = response.data;
+                    $scope.codeSnippets = $scope.codeSnippetsReceived;
+                })
+            }
+        };
+
+        $scope.GetMyCodeSnippets = function(){
+            var userId = $rootScope.userId;
+            if(userId == null){
                 $scope.GetCodeSnippets();
             }
             else{
-                listCodeSnippetsService.GetCodeSnippetsByLanguage(language).then(function(response){
+                listCodeSnippetsService.GetMyCodeSnippets(userId).then(function(response){
                     $scope.codeSnippetsReceived = response.data;
                     $scope.codeSnippets = $scope.codeSnippetsReceived;
                 })
@@ -49,6 +64,6 @@
         };
     };
 
-    angular.module('codeSnip').controller('listCodeSnippetsController', ['$scope', '$http', 'listCodeSnippetsService', listCodeSnippetsController]);
+    angular.module('codeSnip').controller('listCodeSnippetsController', ['$rootScope','$scope', '$http', 'listCodeSnippetsService', listCodeSnippetsController]);
 
 })();

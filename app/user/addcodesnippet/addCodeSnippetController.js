@@ -2,7 +2,7 @@
 
     'use strict'
 
-    function addCodeSnippetController($scope, $http, $location, addCodeSnippetService, languageService) {
+    function addCodeSnippetController($rootScope, $scope, $http, $location, addCodeSnippetService, languageService) {
         
             var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
 
@@ -18,7 +18,8 @@
             var codeSnippet = {
                 language: $scope.language,
                 title: $scope.title,
-                codesnippet: $scope.codeSnip
+                codesnippet: $scope.codeSnip,
+                userId: $rootScope.userId
             };
 
             addCodeSnippetService.addCodeSnippet(codeSnippet).then(function (response) {
@@ -36,5 +37,5 @@
         };
     };
     
-    angular.module('codeSnip').controller('addCodeSnippetController', ['$scope', '$http', '$location', 'addCodeSnippetService', 'languageService', addCodeSnippetController])
+    angular.module('codeSnip').controller('addCodeSnippetController', ['$rootScope','$scope', '$http', '$location', 'addCodeSnippetService', 'languageService', addCodeSnippetController])
 })();

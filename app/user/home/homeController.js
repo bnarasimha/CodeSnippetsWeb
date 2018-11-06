@@ -10,7 +10,7 @@
         }
         else{
             $rootScope.isUserLoggedIn = true;
-            $scope.userName = sessionStorage.Email;
+            $rootScope.userId = sessionStorage.Email;
             $scope.Name = sessionStorage.Name;
             $scope.GreetingMessage = "Welcome " + sessionStorage.Name;
             

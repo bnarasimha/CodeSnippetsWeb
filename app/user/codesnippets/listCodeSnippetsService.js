@@ -7,11 +7,14 @@
             GetCodeSnippets : function(){
                     return $http.get(ApiUrl+ '/codeSnippets');
             },
-            SearchCodeSnippets : function(searchText){
-                return $http.get(ApiUrl + '/searchCodeSnippets/' + searchText)
+            GetMyCodeSnippets : function(userId){
+                return $http.get(ApiUrl+ '/getMyCodeSnippets/' + userId);
             },
-            GetCodeSnippetsByLanguage : function(language){
-                return $http.get(ApiUrl + '/CodeSnippets/language/' + language);
+            SearchCodeSnippets : function(userId,searchText){
+                return $http.get(ApiUrl + '/searchCodeSnippets/'+ userId + '/' + searchText)
+            },
+            GetCodeSnippetsByLanguage : function(userId,language){
+                return $http.get(ApiUrl + '/CodeSnippets/language/' + userId + '/' + language);
             }
         }
     };
