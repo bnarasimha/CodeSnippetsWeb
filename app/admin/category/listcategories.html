@@ -7,13 +7,31 @@
         <div class="row">&nbsp;</div>
         <div class="row">
             <div class="col-sm-12 table-responsive" ng-init="GetCategories();" style="height:300px; border:solid 2px #082a12; overflow: scroll">
+                <!-- <div class="row" style="border-bottom-color:red; border-bottom-width: 2px">
+                        <div class="column col-sm-6"><h4>Category Name</h4></div>
+                        <div class="column col-sm-4"><h4>Category Type</h4></div>
+                </div> -->
                 <div class="row" ng-repeat="language in languages">
-                    <div class="column col-sm-10" >
+                    <div class="column col-sm-6" >
                         <h4><b>&nbsp;
                             <a href="#editCategory/{{language._id}}">{{language.languageName}}</a>
                         </b></h4>
                     </div>
+                    <div class="column col-sm-4" >
+                            <h4><b>&nbsp;
+                                {{language.categoryType}}
+                            </b></h4>
+                        </div>
                 </div>
             </div>
         </div>
+        <div align="center">
+                <pagination 
+                    items-per-page="numPerPage"
+                    ng-model="currentPage" 
+                    total-items="languagesReceived.length" 
+                    max-size="maxSize" 
+                    boundary-links="true">
+                </pagination>
+            </div>
     </div>

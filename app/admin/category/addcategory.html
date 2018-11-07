@@ -12,6 +12,16 @@
                 &nbsp;<label for="categoryName"><h4> Category Name </h4></label>
                 <input  id="categoryName" class="form-control" ng-model="languageName"></input>
             </div>
+            <div class="form-group col-md-2">
+                    <label for="language"> <h4>Category Type</h4></label>
+                    <select id="language" class="form-control" ng-model="categoryType" title="Select Category Type">
+                        <option value="">Select</option>
+                        <option value="Tools">Tools</option>
+                        <option value="Languages">Languages</option>
+                        <option value="Frameworks">Frameworks</option>
+                        <option value="Libraries">Libraries</option>
+                    </select>
+                </div>
         </div>
         <div class="row">
             <div class="form-group col-md-3">

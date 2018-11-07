@@ -4,13 +4,27 @@
         $scope._id = $routeParams.ID;
         var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
         
+        $scope.currentPage = 1;
+        $scope.numPerPage = 7;
+        $scope.maxSize = 5;
+
         languageService.getlanguages().then(function(response){
             $scope.languages = response.data;
+            $scope.Tools = $scope.languages.filter(p => p.categoryType == 'Tools');
+            $scope.Languages = $scope.languages.filter(p => p.categoryType == 'Languages');
+            $scope.Frameworks = $scope.languages.filter(p => p.categoryType == 'Frameworks');
+            $scope.Libraries = $scope.languages.filter(p => p.categoryType == 'Libraries');
         });
 
         $scope.GetCategories = function(){
             languageService.getlanguages().then(function(response){
-                $scope.languages = response.data;
+                $scope.languagesReceived = response.data;
+
+                $scope.$watch('currentPage + numPerPage', function(){
+                    var begin = (($scope.currentPage - 1) * $scope.numPerPage);
+                    var end = begin + $scope.numPerPage;
+                    $scope.languages = $scope.languagesReceived.slice(begin, end);
+                })
             });
         }
 
@@ -26,7 +40,8 @@
 
         $scope.addCategory = function(){
             var category =  {
-                languageName : $scope.languageName
+                languageName : $scope.languageName,
+                categoryType : $scope.categoryType
             }
             languageService.addCategory(category).then(function(){
                 console.log('Added Successfully');
@@ -38,6 +53,7 @@
         $scope.updateCategory = function(){
             var category =  {
                 languageName : $scope.languageDetail.languageName,
+                categoryType : $scope.categoryType,
                 _id : $scope.languageDetail._id,
             }
             languageService.updateCategory(category).then(function(){
