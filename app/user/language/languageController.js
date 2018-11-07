@@ -14,6 +14,7 @@
             $scope.Languages = $scope.languages.filter(p => p.categoryType == 'Languages');
             $scope.Frameworks = $scope.languages.filter(p => p.categoryType == 'Frameworks');
             $scope.Libraries = $scope.languages.filter(p => p.categoryType == 'Libraries');
+            $scope.Others = $scope.languages.filter(p => p.categoryType == 'Others');
         });
 
         $scope.GetCategories = function(){
