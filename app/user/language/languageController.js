@@ -5,7 +5,7 @@
         var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
         
         $scope.currentPage = 1;
-        $scope.numPerPage = 7;
+        $scope.numPerPage = 6;
         $scope.maxSize = 5;
 
         languageService.getlanguages().then(function(response){
@@ -23,7 +23,7 @@
                 $scope.$watch('currentPage + numPerPage', function(){
                     var begin = (($scope.currentPage - 1) * $scope.numPerPage);
                     var end = begin + $scope.numPerPage;
-                    $scope.languages = $scope.languagesReceived.slice(begin, end);
+                    $scope.categories = $scope.languagesReceived.slice(begin, end);
                 })
             });
         }

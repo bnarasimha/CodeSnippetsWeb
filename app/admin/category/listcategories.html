@@ -1,17 +1,21 @@
     <div class="container-fluid" ng-controller="languageController">
         <div class="row">&nbsp;</div>
         <div class="row">
-                <div class="col-md-6"> <h4><b>List of Categories</b></h4> </div>
-                <div class="col-md-6"> <h4><b><a href="#addCategory">Add New Category</b></h4> </div>
+                <div class="col-md-8"> <h4><b>List of Categories</b></h4> </div>
+                <div class="col-md-4" align="right"> <h4><b><a href="#addCategory">Add New Category</b></h4> </div>
         </div>
         <div class="row">&nbsp;</div>
         <div class="row">
             <div class="col-sm-12 table-responsive" ng-init="GetCategories();" style="height:300px; border:solid 2px #082a12; overflow: scroll">
-                <!-- <div class="row" style="border-bottom-color:red; border-bottom-width: 2px">
-                        <div class="column col-sm-6"><h4>Category Name</h4></div>
-                        <div class="column col-sm-4"><h4>Category Type</h4></div>
-                </div> -->
-                <div class="row" ng-repeat="language in languages">
+                <div class="bg-success">
+                    <div class="column col-md-6">
+                        <h4><b>&nbsp;<span>Category</span></b></h4>
+                    </div>
+                    <div class="column col-md-6">
+                        <h4><b>&nbsp;<span>Category Type</span></b></h4>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="language in categories">
                     <div class="column col-sm-6" >
                         <h4><b>&nbsp;
                             <a href="#editCategory/{{language._id}}">{{language.languageName}}</a>

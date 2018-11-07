@@ -32,7 +32,12 @@
              else{
                  listCodeSnippetsService.SearchCodeSnippets(userId,$scope.SearchText).then(function(response){
                     $scope.codeSnippetsReceived = response.data;
-                    $scope.codeSnippets = $scope.codeSnippetsReceived;
+                    
+                    $scope.$watch('currentPage + numPerPage', function(){
+                        var begin = (($scope.currentPage - 1) * $scope.numPerPage);
+                        var end = begin + $scope.numPerPage;
+                        $scope.codeSnippets = $scope.codeSnippetsReceived.slice(begin, end);
+                    })
                 })
              }
         }
