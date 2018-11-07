@@ -9,12 +9,11 @@
             location.href = loginUrl;
         }
         else{
-            $rootScope.isUserLoggedIn = true;
             $rootScope.userId = sessionStorage.Email;
             $scope.Name = sessionStorage.Name;
             $scope.GreetingMessage = "Welcome " + sessionStorage.Name;
             
-            homeService.getUser(sessionStorage.Email).then(function(response){
+            homeService.getUser($rootScope.userId).then(function(response){
                     if(response.data.isAdmin){
                         $rootScope.isAdmin = true;
                     }

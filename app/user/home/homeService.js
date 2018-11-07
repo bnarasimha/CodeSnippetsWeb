@@ -4,8 +4,8 @@
 
     function homeService($http, ApiUrl){
         return {
-            getUser : function(userName){
-                return $http.get(ApiUrl + '/getUser/' + userName);
+            getUser : function(userId){
+                return $http.get(ApiUrl + '/getUser/' + userId);
             }
         }
     };

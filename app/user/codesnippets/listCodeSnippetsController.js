@@ -51,6 +51,7 @@
         };
 
         $scope.GetMyCodeSnippets = function(){
+            
             var userId = $rootScope.userId;
             if(userId == null){
                 $scope.GetCodeSnippets();
