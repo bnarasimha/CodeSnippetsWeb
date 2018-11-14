@@ -1,10 +1,19 @@
-<div ng-controller="codeSnipDetailController" class="container-fluid">
+<div class="viewheight" ng-controller="codeSnipDetailController" class="container-fluid">
         <div class="row">
             <div class="col-md-12"><h3>{{snipDetail.title}}</h3></div>
         </div>
-        <div class="row" style="height:320px;overflow:scroll;">
-            <div class="col-sm-12">
-                <pre style="height: 350px;">{{snipDetail.codesnippet}}</pre>
+        <div class="row">&nbsp;</div>
+        <div class="row" style="overflow:scroll;">
+            <div class="col-sm-12" class="codesnippetdetailheight">
+                <pre class="codesnippetdetailheight">{{snipDetail.codesnippet}}</pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <h4>Url Reference:</h4>
+            </div>
+            <div class="col-sm-10">
+                <h5><a href="{{snipDetail.urlreference}}">{{snipDetail.urlreference}}</a></h5>
             </div>
         </div>
         <div class="row">&nbsp;</div>

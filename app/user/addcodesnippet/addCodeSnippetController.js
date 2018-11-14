@@ -19,6 +19,7 @@
                     language: $scope.language,
                     title: $scope.title,
                     codesnippet: $scope.codeSnip,
+                    urlreference: $scope.urlreference,
                     userId: $rootScope.userId
                 };
 
@@ -34,6 +35,7 @@
                 $scope.language = '';
                 $scope.title = '';
                 $scope.codeSnip = '';
+                $scope.urlreference = '';
             };
     };
     

@@ -1,7 +1,7 @@
 (function(){
     'use strict'
 
-    function codeSnipDetailController($scope, $routeParams, $http, $location, codeSnipDetailService, languageService){
+    function codeSnipDetailController($rootScope, $scope, $routeParams, $http, $location, codeSnipDetailService, languageService, listCodeSnippetsService){
         $scope._id = $routeParams.ID;
         var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
         
@@ -23,24 +23,25 @@
                 language: $scope.snipDetail.language,
                 title: $scope.snipDetail.title,
                 codesnippet: $scope.snipDetail.codesnippet,
+                urlreference: $scope.snipDetail.urlreference,
                 _id : $scope.snipDetail._id,
             };
             console.log(codeSnippet);
             codeSnipDetailService.updateCodeSnippet(codeSnippet).then(function(response){
-                alert('Updated successfully');
+                console.log('Updated successfully');
             });
             alert('Updated Successfully');
-            location.href = hostUrl// + 'snipDetail/' + $scope.snipDetail._id
+            location.href = hostUrl;
         }
 
-        $scope.Delete = function(){
-            codeSnipDetailService.deleteCodeSnippet($scope.ID).then(function(response){
+        $scope.Delete = function(){            
+            codeSnipDetailService.deleteCodeSnippet($scope.snipDetail._id).then(function(response){
                 console.log('Delete successfull');
             });
-
+            alert('Deleted Successfully');
             location.href = hostUrl;
          }
     }    
 
-    angular.module('codeSnip').controller('codeSnipDetailController', ['$scope', '$routeParams', '$http', '$location', 'codeSnipDetailService', 'languageService', codeSnipDetailController]);
+    angular.module('codeSnip').controller('codeSnipDetailController', ['$rootScope', '$scope', '$routeParams', '$http', '$location', 'codeSnipDetailService', 'languageService', 'listCodeSnippetsService', codeSnipDetailController]);
 })();
