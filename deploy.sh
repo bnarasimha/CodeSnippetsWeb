@@ -1,11 +1,11 @@
 set -x;
 export NODE_ENV=$1; 
-cd main; 
+cd prod/main; 
 sudo rm -r node_modules; 
-sudo unzip -o ~/artifacts/main/deploy.zip; 
+sudo unzip -o ~/artifacts/prod/main/deploy.zip; 
 sudo chmod 777 node_modules; 
 sudo chmod -R 777 app;
 sudo npm install; 
 gulp config;
-pm2 delete main;
-pm2 start server.js --name main;
+pm2 delete prodmain;
+pm2 start server.js --name prodmain;
