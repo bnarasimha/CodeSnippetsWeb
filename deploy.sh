@@ -1,7 +1,7 @@
 set -x;
 export NODE_ENV=$1; 
 cd $1/main; 
-sudo rm -r node_modules; 
+# sudo rm -r node_modules; 
 sudo unzip -o ~/artifacts/$1/main/deploy.zip; 
 sudo chmod 777 node_modules; 
 sudo chmod -R 777 app;
