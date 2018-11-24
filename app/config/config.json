@@ -1,9 +1,9 @@
 {
     "local":{
-        "ApiUrl" : "http://localhost:81/api"
+        "ApiUrl" : "http://localhost:8081/api"
     },
     "test":{
-        "ApiUrl" : "http://ec2-18-188-147-32.us-east-2.compute.amazonaws.com:8081/api"    
+        "ApiUrl" : "http://ec2-18-188-147-32.us-east-2.compute.amazonaws.com:81/api"    
     },
     "prod":{
         "ApiUrl" : "http://ec2-13-59-159-109.us-east-2.compute.amazonaws.com:81/api"    
