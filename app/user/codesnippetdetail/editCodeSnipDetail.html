@@ -1,27 +1,27 @@
 <div ng-controller="codeSnipDetailController" class="container-fluid">
     <form>
             <div class="row">&nbsp;</div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-sm-2">
                 <label for="language">Category</label>
                 <select id="language" class="form-control" ng-model="snipDetail.language" title="Select Category">
                     <option value="">Select</option>
                     <option ng-repeat="language in languages" value="{{language.languageName}}">{{language.languageName}}</option>
                 </select>
             </div>
-            <div class="form-group col-md-8">
+            <div class="form-group col-sm-8">
                 <label for="title"> Title </label>
                 <input id="title" class="form-control" type="text" ng-model="snipDetail.title">
             </div>
-            <div class="form-group col-md-10">
+            <div class="form-group col-sm-10">
                 <label for="codeSnip"> Code Snippet </label>
                 <textarea id="codeSnip" class="form-control" rows="10" cols="100" ng-model="snipDetail.codesnippet"></textarea>
             </div>
-            <div class="form-group col-md-10">
+            <div class="form-group col-sm-10">
                     <label for="codeSnip"> URL Reference </label>
                     <input id="urlreference" class="form-control" type="text" ng-model="snipDetail.urlreference">
             </div>
             <div class="row">&nbsp;</div>
-            <div class="form-group col-md-10">
+            <div class="form-group col-sm-10">
                 <center>
                     <button type="button" class="btn btn-primary" ng-click="Update();">Update</button>
                     <a class="btn btn-primary" href="#snipDetail/{{_id}}">Back</a>

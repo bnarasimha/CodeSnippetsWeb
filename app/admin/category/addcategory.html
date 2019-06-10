@@ -8,11 +8,11 @@
 
     <div ng-controller="languageController" class="row table-responsive" style="height:300px; border:solid 2px #082a12;"> 
         <div class="row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-sm-6">
                 &nbsp;<label for="categoryName"><h4> Category Name </h4></label>
                 <input  id="categoryName" class="form-control" ng-model="languageName"></input>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-sm-2">
                     <label for="language"> <h4>Category Type</h4></label>
                     <select id="language" class="form-control" ng-model="categoryType" title="Select Category Type">
                         <option value="">Select</option>
@@ -25,7 +25,7 @@
                 </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-3">
+            <div class="form-group col-sm-3">
                 &nbsp;<button type="button" class="btn btn-primary" ng-click="addCategory();">Submit</button>
                 &nbsp;<a class="btn btn-primary" href="#manageCategories">Back</a>
             </div>

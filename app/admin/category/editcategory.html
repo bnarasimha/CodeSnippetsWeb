@@ -6,15 +6,15 @@
         </div>
         <div class="row">&nbsp;</div>
     
-        <div class="row table-responsive" style="height:300px; border:solid 2px #082a12;">
+        <div class="row" style="height:300px; border:solid 2px #082a12;">
             <div class="row" ng-init="GetLanguageDetails();">
-                <div class="form-group col-md-6">
+                <div class="form-group col-sm-6">
                     &nbsp;<label for="categoryName" ><h4>Category Name</h4></label>
                     <input  id="categoryName" class="form-control" ng-model="languageDetail.languageName">
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-3">
+                <div class="form-group col-sm-3">
                         &nbsp;<button type="button" class="btn btn-primary" ng-click="updateCategory();">Update</button>
                         <button type="button" class="btn btn-primary" ng-click="deleteCategory();">Delete</button>                    
                         <a class="btn btn-primary" href="#manageCategories">Back</a>
