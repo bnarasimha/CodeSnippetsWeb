@@ -4,17 +4,23 @@
         <div class="row">
             <h4><b>Category Details</h4>
         </div>
+        
         <div class="row">&nbsp;</div>
     
-        <div class="row" style="height:300px; border:solid 2px #082a12;">
+        <div class="row" >
             <div class="row" ng-init="GetLanguageDetails();">
-                <div class="form-group col-sm-6">
-                    &nbsp;<label for="categoryName" ><h4>Category Name</h4></label>
-                    <input  id="categoryName" class="form-control" ng-model="languageDetail.languageName">
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="categoryName" ><h4>Category Name</h4></label>
+                    </div>
+                    <div class="col-sm-6" align="left">
+                        <input id="categoryName" class="form-control" ng-model="languageDetail.languageName">
+                    </div>
                 </div>
             </div>
+            <div class="row">&nbsp;</div>
             <div class="row">
-                <div class="form-group col-sm-3">
+                <div class="form-group col-sm-3" align="center">
                         &nbsp;<button type="button" class="btn btn-primary" ng-click="updateCategory();">Update</button>
                         <button type="button" class="btn btn-primary" ng-click="deleteCategory();">Delete</button>                    
                         <a class="btn btn-primary" href="#manageCategories">Back</a>
