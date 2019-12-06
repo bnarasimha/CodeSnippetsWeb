@@ -1,58 +1,68 @@
 <html>
+    <head>
+        <title> CodeSnippets! </title>
 
-<head>
-    <title> CodeSnippets! </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+        <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+        
+        <script type="text/javascript" src="config.json"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
-    
-    <script type="text/javascript" src="config.json"></script>
+        <script src="scripts/adal.js"></script>
+        <script src="scripts/adal-angular.js"></script> 
+        <script src="app.js"></script>
+        <script src="user/home/homeService.js"></script>
+        <script src="user/home/homeController.js"></script>
+        
+        <!-- <script src="scripts/config.js"></script> -->
 
-    <script src="scripts/adal.js"></script>
-    <script src="scripts/adal-angular.js"></script> 
-    <script src="app.js"></script>
-    <script src="user/home/homeService.js"></script>
-    <script src="user/home/homeController.js"></script>
-    
-    <!-- <script src="scripts/config.js"></script> -->
+        <script src="user/addcodesnippet/addCodeSnippetService.js"></script>
+        <script src="user/addcodesnippet/addCodeSnippetController.js"></script>
+        <script src="user/codesnippets/listCodeSnippetsService.js"></script>
+        <script src="user/codesnippets/listCodeSnippetsController.js"></script>
+        <script src="user/codesnippetdetail/codeSnipDetailService.js"></script>
+        <script src="user/codesnippetdetail/codeSnipDetailController.js"></script>
+        <script src="user/language/languageService.js"></script>
+        <script src="user/language/languageController.js"></script>
+        <script src="admin/adminController.js"></script>
 
-    <script src="user/addcodesnippet/addCodeSnippetService.js"></script>
-    <script src="user/addcodesnippet/addCodeSnippetController.js"></script>
-    <script src="user/codesnippets/listCodeSnippetsService.js"></script>
-    <script src="user/codesnippets/listCodeSnippetsController.js"></script>
-    <script src="user/codesnippetdetail/codeSnipDetailService.js"></script>
-    <script src="user/codesnippetdetail/codeSnipDetailController.js"></script>
-    <script src="user/language/languageService.js"></script>
-    <script src="user/language/languageController.js"></script>
-    <script src="admin/adminController.js"></script>
+        <style>
+            div.viewheight{
+                height: 320px;
+            }
+            div.codesnippetdetailheight{
+                height: 300px;
+            }
+            pre.codesnippetdetailheight{
+                height: 300px;
+            }
 
-    <style>
-        div.viewheight{
-            height: 320px;
-        }
-        div.codesnippetdetailheight{
-            height: 300px;
-        }
-        pre.codesnippetdetailheight{
-            height: 300px;
-        }
+            .boldHeader{
+                font-weight: bold;
+                font-size:18px
+            }
 
-        .boldHeader{
-            font-weight: bold;
-            font-size:18px
-        }
-    </style>
+            .PageHeaderBackgroundColor{
+                background-color: #233a64;
+            }
 
-</head>
+            .MiddleLayoutBackgroundColor{
+                background-color: #e6f7ff;
+            }
 
-<body ng-app="codeSnip">
-    <div class="container">
-        <div class="row" style="background:#082c42" ng-controller="homeController">
+            .SideLayoutBackgroundColor{
+                background-color: #e6f7ff;
+            }
+        </style>
+
+    </head>
+
+    <body ng-app="codeSnip">
+        <div class="row PageHeaderBackgroundColor" ng-controller="homeController">
             <div class="col-sm-4"></div>
             <div class="column col-sm-4">`
                 <div class="page-header"><h2><b><center><a href="#/" style="color: white; text-decoration: none">Code Snippets</a></font> </div> </center> </b> </h2>
@@ -69,8 +79,9 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="background:#94cdc4; height:540px;">
-            <div class="col-sm-2" ng-controller="languageController">
+
+        <div class="row" style="height:540px;">
+            <div class="SideLayoutBackgroundColor col-sm-2" ng-controller="languageController">
                 <div class="row">&nbsp;</div>
                 <h4><label><u>Filter by Category</u></label></h4>
 
@@ -83,7 +94,7 @@
                     <div class="collapse" id="tools">
                         <div class="card card-body">
                             <a href="" ng-repeat="tool in Tools" ng-click="GetCodeSnippetsByLanguage(tool.languageName);">
-                                <h4><b>{{tool.languageName}}</b></h4>
+                                <h5><b>{{tool.languageName}}</b></h5>
                             </a>
                         </div>
                     </div>
@@ -95,7 +106,7 @@
                     <div class="collapse" id="languages">
                             <div class="card card-body">
                                 <a href="" ng-repeat="language in Languages" ng-click="GetCodeSnippetsByLanguage(language.languageName);">
-                                    <h4><b>{{language.languageName}}</b></h4>
+                                    <h5><b>{{language.languageName}}</b></h5>
                                 </a>
                             </div>
                         </div>
@@ -107,7 +118,7 @@
                     <div class="collapse" id="frameworks">
                             <div class="card card-body">
                                 <a href="" ng-repeat="framework in Frameworks" ng-click="GetCodeSnippetsByLanguage(framework.languageName);">
-                                    <h4><b>{{framework.languageName}}</b></h4>
+                                    <h5><b>{{framework.languageName}}</b></h5>
                                 </a>
                             </div>
                         </div>
@@ -119,7 +130,7 @@
                     <div class="collapse" id="libraries">
                             <div class="card card-body">
                                 <a href="" ng-repeat="library in Libraries" ng-click="GetCodeSnippetsByLanguage(library.languageName);">
-                                    <h4><b>{{library.languageName}}</b></h4>
+                                    <h5><b>{{library.languageName}}</b></h5>
                                 </a>
                             </div>
                     </div>
@@ -131,17 +142,32 @@
                         <div class="collapse" id="others">
                                 <div class="card card-body">
                                     <a href="" ng-repeat="other in Others" ng-click="GetCodeSnippetsByLanguage(other.languageName);">
-                                        <h4><b>{{other.languageName}}</b></h4>
+                                        <h5><b>{{other.languageName}}</b></h5>
                                     </a>
                                 </div>
                         </div>
                     </div>
             </div>
-            <div class="col-sm-10" style="background:#94cdc4;">
+
+            <div class="MiddleLayoutBackgroundColor col-sm-8">
                 <div ng-view></div>
             </div>
+
+            <div class="SideLayoutBackgroundColor col-sm-2" ng-controller="languageController">
+                <div class="row">&nbsp;</div>
+                <h4><label><u>Filter by Tags</u></label></h4>
+
+                <div class="col-sm-12">
+                    <div class="collapse" id="languages">
+                        <div class="card card-body">
+                            <a href="" ng-repeat="language in Languages" ng-click="GetCodeSnippetsByLanguage(language.languageName);">
+                                <h4><b>{{language.languageName}}</b></h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>

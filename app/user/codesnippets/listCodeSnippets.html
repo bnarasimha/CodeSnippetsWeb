@@ -11,11 +11,11 @@
     <div class="row">&nbsp;</div>
 
     <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-8">
             <input type="text" class="form-control" id="SearchInput" ng-model="SearchText"></input>
         </div>
         <div class="col-sm-1"><button class="btn btn-primary" id="SearchButton" ng-click="SearchCodeSnippets();">Search</button> </div>
-        <div class="col-sm-6 boldHeader" align="right">
+        <div class="col-sm-3 boldHeader" align="right">
             <a href="#addSnip">Add Code Snippet</a>
         </div>
     </div>
@@ -25,22 +25,32 @@
             <div class="viewheight" style="border:solid 2px #082a12;">
                 <div class="table table-condensed">
                     <div class="bg-success">
-                        <div class="column col-sm-10">
-                            <h4><b>&nbsp;<span>Title</span></b></h4>
+                        <div class="column col-sm-6">
+                            <h4><b><span>Title</span></b></h4>
                         </div>
-                        <div class="column col-sm-2">
-                            <h4><b>&nbsp;<span>Category</span></b></h4>
+                        <div class="column col-sm-3">
+                            <h4><b><span>Category</span></b></h4>
+                        </div>
+                        <div class="column col-sm-3">
+                            <h4><b><span>Tags</span></b></h4>
                         </div>
                     </div>
+
+                    <div class="row">&nbsp;</div>
+                    <div class="row">&nbsp;</div>
+
                     <div class="row" ng-repeat="snip in codeSnippets">
-                        <div class="column col-sm-10">
+                        <div class="column col-sm-6">
                             <h4><b>&nbsp;
                                 <a href="#snipDetail/{{snip._id}}">{{snip.title}}</a>
                             </b></h4>
                         </div>
-                        <div class="column col-sm-2">
+                        <div class="column col-sm-3">
                             <b>{{snip.language}}</b>
                         </div>
+                        <div class="column col-sm-3">
+                                <b>{{snip.tags}}</b>
+                            </div>
                     </div>
                 </div>
             </div>

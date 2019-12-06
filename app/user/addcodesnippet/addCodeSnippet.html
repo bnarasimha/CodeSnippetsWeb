@@ -11,16 +11,16 @@
                         <option ng-repeat="language in languages" value="{{language.languageName}}">{{language.languageName}}</option>
                     </select>
                 </div>
-                <div class="form-group col-sm-8">
+                <div class="form-group col-sm-10">
                     <label for="title"> Title </label>
                     <input id="title" class="form-control" type="text" ng-model="title">
                 </div>
-                <div class="form-group col-sm-10">
+                <div class="form-group col-sm-12">
                     <label for="codeSnip"> Code Snippet </label>
                     <textarea id="codeSnip" class="form-control" rows="10" cols="100" ng-model="codeSnip"></textarea>
                 </div>
                 
-                <div class="form-inline col-sm-10">  
+                <div class="form-inline col-sm-12">  
                     <label for="urlreference" style="width:150px"> URL Reference </label>
                     <input id="urlreference"  style="width:600px" class="form-control" type="text" ng-model="urlreference">
                 </div>    
@@ -28,7 +28,7 @@
                 <div class="row">&nbsp;</div>
                 <div class="row">&nbsp;</div>
 
-                <div class="form-inline col-sm-10">  
+                <div class="form-inline col-sm-12">  
                         <label for="tags" style="width:150px">Tags (Labels)</label>
                         <input id="newTag" class="form-control" type="text" ng-model="newTag"> &nbsp;
                         <button type="button" class="btn btn-primary" ng-click="AddLabel();">Add</button> &nbsp;
@@ -42,7 +42,7 @@
             <div class="row">&nbsp;</div>
            
             <div class="row">
-                <div class="form-group col-sm-10">
+                <div class="form-group col-sm-12">
                     <center>
                         <button type="button" class="btn btn-primary" ng-click="addCodeSnippet();">Submit</button>
                         <button type="button" class="btn btn-primary" ng-click="Back();">Back</button>

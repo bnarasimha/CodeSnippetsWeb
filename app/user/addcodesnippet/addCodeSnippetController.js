@@ -39,10 +39,12 @@
             };
 
             $scope.AddLabel = function () {
-                labels.push($scope.newTag);
-                $scope.tags = labels;
-                $scope.newTag = '';
-                document.querySelector("#newTag").focus();
+                if($scope.newTag != undefined){
+                    labels.push($scope.newTag);
+                    $scope.tags = labels;
+                    $scope.newTag = '';
+                    document.querySelector("#newTag").focus();
+                }
             }
 
             $scope.RemoveLabel = function (tag) {
