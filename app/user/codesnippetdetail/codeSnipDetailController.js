@@ -5,12 +5,15 @@
         $scope._id = $routeParams.ID;
         var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
         
+        var labels = [];
+        
         languageService.getlanguages().then(function(response){
             $scope.languages = response.data;
         });
 
         codeSnipDetailService.getCodeSnipDetail($scope._id).then(function(response){
             $scope.snipDetail = response.data;
+            $scope.tags = labels = $scope.snipDetail.tags.split(',');
         });
 
         $scope.Back = function(){
@@ -24,6 +27,7 @@
                 title: $scope.snipDetail.title,
                 codesnippet: $scope.snipDetail.codesnippet,
                 urlreference: $scope.snipDetail.urlreference,
+                tags: labels.toString(),
                 _id : $scope.snipDetail._id,
             };
             console.log(codeSnippet);
@@ -41,6 +45,18 @@
             alert('Deleted Successfully');
             location.href = hostUrl;
          }
+
+         $scope.AddLabel = function () {
+            labels.push($scope.newTag);
+            $scope.tags = labels;
+            $scope.newTag = '';
+            document.querySelector("#newTag").focus();
+        }
+
+        $scope.RemoveLabel = function (tag) {
+            labels.splice(labels.indexOf(tag), 1);
+            $scope.tags = labels;
+        }
     }    
 
     angular.module('codeSnip').controller('codeSnipDetailController', ['$rootScope', '$scope', '$routeParams', '$http', '$location', 'codeSnipDetailService', 'languageService', 'listCodeSnippetsService', codeSnipDetailController]);

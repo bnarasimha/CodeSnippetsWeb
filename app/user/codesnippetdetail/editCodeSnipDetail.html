@@ -1,5 +1,6 @@
 <div ng-controller="codeSnipDetailController" class="container-fluid">
     <form>
+        <div class="table">
             <div class="row">&nbsp;</div>
             <div class="form-group col-sm-2">
                 <label for="language">Category</label>
@@ -20,6 +21,17 @@
                     <label for="codeSnip"> URL Reference </label>
                     <input id="urlreference" class="form-control" type="text" ng-model="snipDetail.urlreference">
             </div>
+            <div class="row" style="margin-left: 0px;">
+                    <div class="form-inline col-sm-10">
+                        <label for="tags" style="width:150px">Tags (Labels)</label>
+                        <input id="newTag" class="form-control" type="text" ng-model="newTag"> &nbsp;
+                        <button type="button" class="btn btn-primary" ng-click="AddLabel();">Add</button> &nbsp;
+                        
+                        <button type="button" class="btn btn-default btn-sm" ng-repeat="tag in tags" ng-model="tags" ng-click="RemoveLabel(tag)">
+                                <span class="glyphicon glyphicon-remove"></span> {{ tag }} 
+                        </button>
+                    </div>
+            </div>
             <div class="row">&nbsp;</div>
             <div class="form-group col-sm-10">
                 <center>
@@ -27,5 +39,6 @@
                     <a class="btn btn-primary" href="#snipDetail/{{_id}}">Back</a>
                 </center>
             </div>
-        </form>
+        </div>
+    </form>
 </div>

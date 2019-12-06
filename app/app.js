@@ -1,7 +1,7 @@
 var codeSnip = angular.module('codeSnip', ['ngRoute','AdalAngular', 'ui.bootstrap']);
 
-var json = $.getJSON({'url': "config.json", 'async': false});  
-json = JSON.parse(json.responseText); 
+// var json = $.getJSON({'url': "config.json", 'async': false});  
+// json = JSON.parse(json.responseText); 
 //alert(json.ApiUrl);
 
 angular.module("codeSnip")
