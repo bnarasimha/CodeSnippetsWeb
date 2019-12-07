@@ -146,7 +146,7 @@
                                     </a>
                                 </div>
                         </div>
-                    </div>
+                </div>
             </div>
 
             <div class="MiddleLayoutBackgroundColor col-sm-8">
@@ -157,14 +157,12 @@
                 <div class="row">&nbsp;</div>
                 <h4><label><u>Filter by Tags</u></label></h4>
 
-                <div class="col-sm-12">
-                    <div class="collapse" id="languages">
+                <div class="col-sm-12" style="margin-left: -8%;">
                         <div class="card card-body">
-                            <a href="" ng-repeat="language in Languages" ng-click="GetCodeSnippetsByLanguage(language.languageName);">
-                                <h4><b>{{language.languageName}}</b></h4>
-                            </a>
+                            <button type="button" style="margin: 2px;" class="btn btn-primary btn-xs" ng-repeat="tag in tags" ng-model="tags">
+                            {{ tag }}
+                            </button>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

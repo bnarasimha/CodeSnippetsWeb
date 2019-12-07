@@ -18,6 +18,9 @@
                 },
                 deleteCategory : function(_id){
                     return $http.delete(ApiUrl + '/deleteCategory/' + _id);
+                },
+                getTags : function(){
+                    return $http.get(ApiUrl + '/getTags');
                 }
             }
         };

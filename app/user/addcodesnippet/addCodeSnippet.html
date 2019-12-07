@@ -33,7 +33,7 @@
                         <input id="newTag" class="form-control" type="text" ng-model="newTag"> &nbsp;
                         <button type="button" class="btn btn-primary" ng-click="AddLabel();">Add</button> &nbsp;
                         
-                        <button type="button" class="btn btn-default btn-sm" ng-repeat="tag in tags" ng-model="tags" ng-click="RemoveLabel(tag)">
+                        <button type="button" style="margin: 2px;" class="btn btn-primary btn-sm" ng-repeat="tag in tags" ng-model="tags" ng-click="RemoveLabel(tag)">
                                 <span class="glyphicon glyphicon-remove"></span> {{ tag }} 
                         </button>
                 </div>

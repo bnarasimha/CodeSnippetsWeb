@@ -17,6 +17,10 @@
             $scope.Others = $scope.languages.filter(p => p.categoryType == 'Others');
         });
 
+        languageService.getTags().then(function(response){
+            $scope.tags = response.data;
+        });
+
         $scope.GetCategories = function(){
             languageService.getlanguages().then(function(response){
                 $scope.languagesReceived = response.data;
