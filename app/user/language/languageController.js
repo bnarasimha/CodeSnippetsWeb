@@ -43,6 +43,10 @@
             $rootScope.$broadcast('filterByLanguage', language);
         }
 
+        $scope.GetCodeSnippetsByTags = function(tags){
+            $rootScope.$broadcast('filterByTags', tags);
+        }
+
         $scope.addCategory = function(){
             var category =  {
                 languageName : $scope.languageName,

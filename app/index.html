@@ -159,7 +159,7 @@
 
                 <div class="col-sm-12" style="margin-left: -8%;">
                         <div class="card card-body">
-                            <button type="button" style="margin: 2px;" class="btn btn-primary btn-xs" ng-repeat="tag in tags" ng-model="tags">
+                            <button type="button" style="margin: 2px;" class="btn btn-primary btn-xs" ng-repeat="tag in tags" ng-model="tags" ng-click="GetCodeSnippetsByTags(tag);">
                             {{ tag }}
                             </button>
                         </div>

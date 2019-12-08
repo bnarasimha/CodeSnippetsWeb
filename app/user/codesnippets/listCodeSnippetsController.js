@@ -12,6 +12,10 @@
             $scope.CodeSnippetsByLanguage(value);
         });
 
+        $scope.$on('filterByTags', function(event, value){
+            $scope.CodeSnippetsByTags(value);
+        });
+
         $scope.GetCodeSnippets = function(){            
             listCodeSnippetsService.GetCodeSnippets().then(function(response){
                 $scope.codeSnippetsReceived = response.data;
@@ -53,6 +57,14 @@
                     $scope.codeSnippets = $scope.codeSnippetsReceived;
                 })
             }
+        };
+
+        $scope.CodeSnippetsByTags = function(tags){
+            var userId = $rootScope.userId;
+                listCodeSnippetsService.GetCodeSnippetsByTags(userId,tags).then(function(response){
+                    $scope.codeSnippetsReceived = response.data;
+                    $scope.codeSnippets = $scope.codeSnippetsReceived;
+                })
         };
 
         $scope.GetMyCodeSnippets = function(){

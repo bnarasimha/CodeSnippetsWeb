@@ -15,6 +15,9 @@
             },
             GetCodeSnippetsByLanguage : function(userId,language){
                 return $http.get(ApiUrl + '/CodeSnippets/language/' + userId + '/' + language);
+            },
+            GetCodeSnippetsByTags : function(userId,tags){
+                return $http.get(ApiUrl + '/CodeSnippets/tags/' + userId + '/' + tags);
             }
         }
     };
