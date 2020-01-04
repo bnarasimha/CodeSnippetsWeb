@@ -29,8 +29,8 @@
         <div class="row">&nbsp;</div>
         <div class="row">
                 <div class="form-group col-sm-12" align="center">
-                    <a class="btn btn-primary" href="#editSnipDetail/{{_id}}">Edit</a>
-                    <button type="button" class="btn btn-primary" ng-click="Delete();">Delete</button>
+                    <a ng-show="EditAllowed" class="btn btn-primary" href="#editSnipDetail/{{_id}}">Edit</a>
+                    <button ng-show="EditAllowed" type="button" class="btn btn-primary" ng-click="Delete();">Delete</button>
                     <button type="button" class="btn btn-primary" ng-click="Back();">Back</button>
                 </div>
         </div>    

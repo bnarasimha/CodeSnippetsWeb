@@ -29,12 +29,12 @@
         };
 
          $scope.SearchCodeSnippets = function(){
-            var userId = $rootScope.userId;
+             
              if($scope.SearchText == undefined || $scope.SearchText == ''){
-                 $scope.GetMyCodeSnippets();
+                 $scope.GetCodeSnippets();
              }
              else{
-                 listCodeSnippetsService.SearchCodeSnippets(userId,$scope.SearchText).then(function(response){
+                 listCodeSnippetsService.SearchCodeSnippets($scope.SearchText).then(function(response){
                     $scope.codeSnippetsReceived = response.data;
                     
                     $scope.$watch('currentPage + numPerPage', function(){
@@ -47,12 +47,12 @@
         }
 
         $scope.CodeSnippetsByLanguage = function(language){
-            var userId = $rootScope.userId;
+            //var userId = $rootScope.userId;
             if(language == 'All'){
-                $scope.GetMyCodeSnippets();
+                $scope.GetCodeSnippets();
             }
             else{
-                listCodeSnippetsService.GetCodeSnippetsByLanguage(userId,language).then(function(response){
+                listCodeSnippetsService.GetCodeSnippetsByLanguage(language).then(function(response){
                     $scope.codeSnippetsReceived = response.data;
                     $scope.codeSnippets = $scope.codeSnippetsReceived;
                 })
@@ -60,30 +60,11 @@
         };
 
         $scope.CodeSnippetsByTags = function(tags){
-            var userId = $rootScope.userId;
-                listCodeSnippetsService.GetCodeSnippetsByTags(userId,tags).then(function(response){
+            //var userId = $rootScope.userId;
+                listCodeSnippetsService.GetCodeSnippetsByTags(tags).then(function(response){
                     $scope.codeSnippetsReceived = response.data;
                     $scope.codeSnippets = $scope.codeSnippetsReceived;
                 })
-        };
-
-        $scope.GetMyCodeSnippets = function(){
-            
-            var userId = $rootScope.userId;
-            if(userId == null){
-                $scope.GetCodeSnippets();
-            }
-            else{
-                listCodeSnippetsService.GetMyCodeSnippets(userId).then(function(response){
-                    $scope.codeSnippetsReceived = response.data;
-
-                    $scope.$watch('currentPage + numPerPage', function(){
-                        var begin = (($scope.currentPage - 1) * $scope.numPerPage);
-                        var end = begin + $scope.numPerPage;
-                        $scope.codeSnippets = $scope.codeSnippetsReceived.slice(begin, end);
-                    })
-                })
-            }
         };
     };
 

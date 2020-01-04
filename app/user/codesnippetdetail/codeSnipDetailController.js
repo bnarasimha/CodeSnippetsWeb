@@ -2,11 +2,12 @@
     'use strict'
 
     function codeSnipDetailController($rootScope, $scope, $routeParams, $http, $location, codeSnipDetailService, languageService, listCodeSnippetsService){
+        
         $scope._id = $routeParams.ID;
         var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
         
         var labels = [];
-        
+
         languageService.getlanguages().then(function(response){
             $scope.languages = response.data;
         });
@@ -14,7 +15,12 @@
         codeSnipDetailService.getCodeSnipDetail($scope._id).then(function(response){
             $scope.snipDetail = response.data;
             $scope.tags = labels = $scope.snipDetail.tags.split(',');
-        });
+
+            if ($rootScope.userId == $scope.snipDetail.userId)
+                $scope.EditAllowed = true;
+            else
+                $scope.EditAllowed = false;
+            });
 
         $scope.Back = function(){
             location.href = hostUrl;
