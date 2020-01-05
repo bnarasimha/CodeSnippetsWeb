@@ -12,6 +12,12 @@
             },
             updateCodeSnippet: function(codeSnippet) {
                 return $http.post(ApiUrl + '/editCodeSnippet', codeSnippet);                
+            },
+            vote: function(codeSnippetId){
+                return $http.post(ApiUrl + '/vote/' + codeSnippetId);
+            },
+            getCodeVotesAndComments: function(codeSnippetId){
+                return $http.get(ApiUrl + '/getCodeVotesAndComments/' + codeSnippetId);
             }
         }
     };

@@ -35,10 +35,10 @@
                 height: 320px;
             }
             div.codesnippetdetailheight{
-                height: 300px;
+                height: 250px;
             }
             pre.codesnippetdetailheight{
-                height: 300px;
+                height: 250px;
             }
 
             .boldHeader{
@@ -56,6 +56,13 @@
 
             .SideLayoutBackgroundColor{
                 background-color: #e6f7ff;
+            }
+
+            .vertical-center {
+                margin-top : 35;
+                top: 50%;
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
             }
         </style>
 
@@ -103,7 +110,7 @@
                             Tools
                         </button>
                     </div>
-                    <div class="collapse" id="tools">
+                    <div class="collapse.show" id="tools">
                         <div class="card card-body">
                             <a href="" ng-repeat="tool in Tools" ng-click="GetCodeSnippetsByLanguage(tool.languageName);">
                                 <h5><b>{{tool.languageName}}</b></h5>
@@ -116,7 +123,7 @@
                             Frameworks
                         </button>
                     </div>
-                    <div class="collapse" id="frameworks">
+                    <div class="collapse.show" id="frameworks">
                             <div class="card card-body">
                                 <a href="" ng-repeat="framework in Frameworks" ng-click="GetCodeSnippetsByLanguage(framework.languageName);">
                                     <h5><b>{{framework.languageName}}</b></h5>
@@ -128,7 +135,7 @@
                             Libraries
                         </button>
                     </div>
-                    <div class="collapse" id="libraries">
+                    <div class="collapse.show" id="libraries">
                             <div class="card card-body">
                                 <a href="" ng-repeat="library in Libraries" ng-click="GetCodeSnippetsByLanguage(library.languageName);">
                                     <h5><b>{{library.languageName}}</b></h5>
@@ -140,7 +147,7 @@
                                 Others
                             </button>
                         </div>
-                        <div class="collapse" id="others">
+                        <div class="collapse.show" id="others">
                                 <div class="card card-body">
                                     <a href="" ng-repeat="other in Others" ng-click="GetCodeSnippetsByLanguage(other.languageName);">
                                         <h5><b>{{other.languageName}}</b></h5>

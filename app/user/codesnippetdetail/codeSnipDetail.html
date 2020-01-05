@@ -1,7 +1,11 @@
 <div class="viewheight" ng-controller="codeSnipDetailController" class="container-fluid">
     <div class="table">
         <div class="row">
-            <div class="col-sm-12"><h3>{{snipDetail.title}}</h3></div>
+            <div class="col-sm-10"><h3>{{snipDetail.title}}</h3></div>
+            <div class="col-sm-2 vertical-center">
+                    <label ng-model="votes"></label>
+                    <button type="button" ng-click="Vote();" class="btn btn-primary btn-xm">Vote</button>
+            </div>
         </div>
         <div class="row">&nbsp;</div>
         <div class="row">
@@ -14,13 +18,12 @@
                 <label> Url Reference: </label>
             </div>
             <div class="col-sm-10" style="text-align: left;">
-                <h5><a href="{{snipDetail.urlreference}}">{{snipDetail.urlreference}}</a></h5>
+                <a href="{{snipDetail.urlreference}}">{{snipDetail.urlreference}}</a>
             </div>
         </div>
-        <div class="row">&nbsp;</div>
         <div class="row">
                 <div class="form-inline col-sm-12">
-                    <label for="tags" style="width:150px">Tags (Labels)</label>                    
+                    <label for="tags" style="width:150px">Tags (Labels) :</label>                    
                     <button type="button" style="margin: 2px;" class="btn btn-primary btn-xs" ng-repeat="tag in tags" ng-model="tags">
                         {{ tag }}
                     </button>

@@ -20,7 +20,12 @@
                 $scope.EditAllowed = true;
             else
                 $scope.EditAllowed = false;
-            });
+        });
+
+        codeSnipDetailService.getCodeVotesAndComments($scope._id).then(function(response){
+            $scope.votes = response.data.votes;
+            //$scope.comments = respose.data.comments;
+        });
 
         $scope.Back = function(){
             location.href = hostUrl;
@@ -64,6 +69,12 @@
         $scope.RemoveLabel = function (tag) {
             labels.splice(labels.indexOf(tag), 1);
             $scope.tags = labels;
+        }
+
+        $scope.Vote = function(){
+            codeSnipDetailService.vote($scope.snipDetail._id).then(function(respose){
+                console.log("Voted successfully");
+            })
         }
     }    
 
