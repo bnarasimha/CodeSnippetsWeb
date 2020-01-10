@@ -22,7 +22,7 @@
                 $scope.EditAllowed = false;
         });
 
-        codeSnipDetailService.getCodeVotesAndComments($scope._id).then(function(response){
+        codeSnipDetailService.getCodeSnippetVotes($scope._id).then(function(response){
             $scope.votes = response.data.votes;
             //$scope.comments = respose.data.comments;
         });

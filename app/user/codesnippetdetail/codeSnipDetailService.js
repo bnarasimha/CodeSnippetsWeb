@@ -16,8 +16,8 @@
             vote: function(codeSnippetId){
                 return $http.post(ApiUrl + '/vote/' + codeSnippetId);
             },
-            getCodeVotesAndComments: function(codeSnippetId){
-                return $http.get(ApiUrl + '/getCodeVotesAndComments/' + codeSnippetId);
+            getCodeSnippetVotes: function(codeSnippetId){
+                return $http.get(ApiUrl + '/getCodeSnippetVotes/' + codeSnippetId);
             }
         }
     };
