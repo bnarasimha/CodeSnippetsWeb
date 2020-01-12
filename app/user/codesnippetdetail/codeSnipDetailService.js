@@ -13,11 +13,14 @@
             updateCodeSnippet: function(codeSnippet) {
                 return $http.post(ApiUrl + '/editCodeSnippet', codeSnippet);                
             },
-            vote: function(codeSnippetId){
-                return $http.post(ApiUrl + '/vote/' + codeSnippetId);
-            },
             getCodeSnippetVotes: function(codeSnippetId){
                 return $http.get(ApiUrl + '/getCodeSnippetVotes/' + codeSnippetId);
+            },
+            addCodeSnippetVote: function(addCodeSnippetVote){
+                return $http.post(ApiUrl + '/addCodeSnippetVote/' + addCodeSnippetVote);
+            },
+            updateCodeSnippetVote: function(updateCodeSnippetVote){
+                return $http.post(ApiUrl + '/updateCodeSnippetVote/' + updateCodeSnippetVote);
             }
         }
     };

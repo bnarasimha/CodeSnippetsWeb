@@ -23,8 +23,7 @@
         });
 
         codeSnipDetailService.getCodeSnippetVotes($scope._id).then(function(response){
-            $scope.votes = response.data.votes;
-            //$scope.comments = respose.data.comments;
+            $scope.codeSnippetVotes = response.data;
         });
 
         $scope.Back = function(){
@@ -71,10 +70,31 @@
             $scope.tags = labels;
         }
 
-        $scope.Vote = function(){
-            codeSnipDetailService.vote($scope.snipDetail._id).then(function(respose){
-                console.log("Voted successfully");
-            })
+        $scope.voteForCodeSnippet = function(){
+
+            if($scope.codeSnippetVotes == null)
+            {
+                var addCodeSnippetVote = {
+                    codeSnippetId: $scope.snipDetail._id,
+                    votes: "1"
+                }
+                codeSnipDetailService.addCodeSnippetVote(addCodeSnippetVote).then(function(respose){
+                    console.log("Voted successfully");
+                })
+            }
+            else
+            {
+                var noOfVotes = parseInt($scope.codeSnippetVotes.votes) +  1;
+
+                var updateCodeSnippetVote = {
+                    codeSnippetId: $scope.snipDetail._id,
+                    votes: noOfVotes.toString()
+                };
+
+                codeSnipDetailService.addCodeSnippetVote(updateCodeSnippetVote).then(function(respose){
+                    console.log("Voted successfully");
+                })
+            }
         }
     }    
 

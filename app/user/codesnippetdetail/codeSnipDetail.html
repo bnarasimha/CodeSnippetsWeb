@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-sm-10"><h3>{{snipDetail.title}}</h3></div>
             <div class="col-sm-2 vertical-center">
-                    <label ng-model="votes"></label>
-                    <button type="button" ng-click="Vote();" class="btn btn-primary btn-xm">Vote</button>
+                    <label>{{codeSnippetVotes.votes}} votes</label>
+                    <button type="button" ng-click="voteForCodeSnippet();" class="btn btn-primary btn-xm">Vote</button>
             </div>
         </div>
         <div class="row">&nbsp;</div>
