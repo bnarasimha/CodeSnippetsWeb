@@ -26,6 +26,10 @@
             $scope.codeSnippetVotes = response.data;
         });
 
+        codeSnipDetailService.getCodeSnippetComments($scope._id).then(function(response){
+            $scope.codeSnippetComments = response.data;
+        });
+
         $scope.Back = function(){
             location.href = hostUrl;
         }

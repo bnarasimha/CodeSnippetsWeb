@@ -30,6 +30,21 @@
                 </div>
         </div>
         <div class="row">&nbsp;</div>
+
+        <div class="row" style="margin-left: 5; margin-right: 5;">
+            <div >
+                <label><h4><b>Comments</b></h4></label>
+            </div>
+            <div style="background-color:gainsboro;">
+                <div ng-repeat="codeSnippetComment in codeSnippetComments">
+                    <div><hr/></div>
+                    <label>{{codeSnippetComment.comment}}</label>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+
+        <div class="row">&nbsp;</div>
         <div class="row">
                 <div class="form-group col-sm-12" align="center">
                     <a ng-show="EditAllowed" class="btn btn-primary" href="#editSnipDetail/{{_id}}">Edit</a>

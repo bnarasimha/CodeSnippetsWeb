@@ -33,6 +33,28 @@
                     </div>
             </div>
             <div class="row">&nbsp;</div>
+            
+            <div class="row" style="margin-left: 5; margin-right: 5;">
+                <div >
+                    <label><h4><b>Comments</b></h4></label>
+                </div>
+                <div style="background-color:gainsboro;">
+                    <div ng-repeat="codeSnippetComment in codeSnippetComments">
+                        <div><hr/></div>
+                        <label>{{codeSnippetComment.comment}}</label>
+                    </div>
+                </div>
+                <div>&nbsp;</div>
+                <div>
+                    <div><label><b>Add Comment</b></label></div>
+                    <div>
+                        <textarea id="codeSnipComment" class="form-control" rows="2" cols="100" ng-model="codeSnipComment"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">&nbsp;</div>
+
             <div class="form-group col-sm-12">
                 <center>
                     <button type="button" class="btn btn-primary" ng-click="Update();">Update</button>

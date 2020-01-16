@@ -22,7 +22,10 @@
             },
             updateCodeSnippetVote: function(updateCodeSnippetVote){
                 return $http.post(ApiUrl + '/updateCodeSnippetVote/', updateCodeSnippetVote);
-            }
+            },
+            getCodeSnippetComments: function(codeSnippetId){
+                return $http.get(ApiUrl + '/getCodeSnippetComments/' + codeSnippetId);
+            },
         }
     };
 
