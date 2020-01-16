@@ -17,10 +17,11 @@
                 return $http.get(ApiUrl + '/getCodeSnippetVotes/' + codeSnippetId);
             },
             addCodeSnippetVote: function(addCodeSnippetVote){
-                return $http.post(ApiUrl + '/addCodeSnippetVote/' + addCodeSnippetVote);
+                console.log(addCodeSnippetVote);
+                return $http.post(ApiUrl + '/addCodeSnippetVote/', addCodeSnippetVote);
             },
             updateCodeSnippetVote: function(updateCodeSnippetVote){
-                return $http.post(ApiUrl + '/updateCodeSnippetVote/' + updateCodeSnippetVote);
+                return $http.post(ApiUrl + '/updateCodeSnippetVote/', updateCodeSnippetVote);
             }
         }
     };

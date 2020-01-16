@@ -91,8 +91,9 @@
                     votes: noOfVotes.toString()
                 };
 
-                codeSnipDetailService.addCodeSnippetVote(updateCodeSnippetVote).then(function(respose){
+                codeSnipDetailService.updateCodeSnippetVote(updateCodeSnippetVote).then(function(respose){
                     console.log("Voted successfully");
+                    $scope.codeSnippetVotes = respose.data;
                 })
             }
         }
