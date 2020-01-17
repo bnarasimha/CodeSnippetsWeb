@@ -26,6 +26,9 @@
             getCodeSnippetComments: function(codeSnippetId){
                 return $http.get(ApiUrl + '/getCodeSnippetComments/' + codeSnippetId);
             },
+            addCodeSnippetComments: function(newCodeSnippetComment){
+                return $http.post(ApiUrl + '/addCodeSnippetComment/',  newCodeSnippetComment);
+            },
         }
     };
 

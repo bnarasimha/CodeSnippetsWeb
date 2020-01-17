@@ -2,9 +2,9 @@
     <div class="table">
         <div class="row">
             <div class="col-sm-10"><h3><b>{{snipDetail.title}}</b></h3></div>
-            <div class="col-sm-2 vertical-center">
-                    <label>{{codeSnippetVotes.votes}} votes</label>
-                    <button type="button" ng-click="voteForCodeSnippet();" class="btn btn-primary btn-xm">Vote</button>
+            <div class="col-sm-2" align="right" style="padding-top: 15px;">
+                <label>{{codeSnippetVotes.votes}} votes</label>
+                <button type="button" ng-click="voteForCodeSnippet();" class="btn btn-primary btn-xm">Vote</button>
             </div>
         </div>
         <div class="row">&nbsp;</div>
@@ -17,30 +17,55 @@
             <div class="col-sm-2">
                 <label> Url Reference: </label>
             </div>
-            <div class="col-sm-10" style="text-align: left;">
+            <div class="col-sm-10" align="left" style="padding-left: 0px; padding-right: 15px;">
                 <a href="{{snipDetail.urlreference}}">{{snipDetail.urlreference}}</a>
             </div>
         </div>
-        <div class="row">
-                <div class="form-inline col-sm-12">
-                    <label for="tags" style="width:150px">Tags (Labels) :</label>                    
-                    <button type="button" style="margin: 2px;" class="btn btn-primary btn-xs" ng-repeat="tag in tags" ng-model="tags">
-                        {{ tag }}
-                    </button>
-                </div>
-        </div>
-        <div class="row">&nbsp;</div>
 
-        <div class="container" style="padding: 0px;">
-            <h4><b>Comments</b></h4>
-            <div class="col-sm-11 panel-group" style="padding: 0px;">
-              <div class="panel panel-default" ng-repeat="codeSnippetComment in codeSnippetComments">
-                <div class="panel-body">{{codeSnippetComment.comment}}</div>
-              </div>
+        <div class="row">               
+            <div class="col-sm-2">
+                <label for="tags">Tags (Labels) :</label>   
+            </div>
+            <div class="col-sm-10" align="left" style="padding-left: 0px; padding-right: 15px;">
+                <button type="button" style="margin: 2px;" class="btn btn-primary btn-xs" ng-repeat="tag in tags" ng-model="tags">
+                    {{ tag }}
+                </button>
             </div>
         </div>
 
         <div class="row">&nbsp;</div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="padding: 0px;">
+                    <h4><b>Comments</b></h4>
+                    
+                    <div class="panel-group" style="padding-left: 15px; padding-right: 15;">
+                    <div class="row panel panel-default" ng-repeat="codeSnippetComment in codeSnippetComments">
+                        <div class="col-sm-9" style="padding-left: 0px;">
+                            <div class="panel-body">{{codeSnippetComment.comment}}</div>
+                        </div>
+                        <div class="col-sm-1"  style="padding: 15;">
+                            <div>{{codeSnippetComment.userId}}</div>
+                        </div>    
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">&nbsp;</div>
+
+        <div>
+            <div><label><b>Add Comment</b></label></div>
+            <div>
+                <textarea id="codeSnipComment" class="form-control" rows="2" cols="100" ng-model="codeSnipComment"></textarea>
+                <button type="button" class="btn btn-primary" ng-click="AddComment();">Add</button>
+            </div>
+        </div>
+
+        <div class="row">&nbsp;</div>
+
         <div class="row">
                 <div class="form-group col-sm-12" align="center">
                     <a ng-show="EditAllowed" class="btn btn-primary" href="#editSnipDetail/{{_id}}">Edit</a>

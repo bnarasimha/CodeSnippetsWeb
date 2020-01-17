@@ -101,6 +101,25 @@
                 })
             }
         }
+
+        $scope.GetCodeSnippetComments = function(){
+            codeSnipDetailService.getCodeSnippetComments($scope._id).then(function(response){
+                $scope.codeSnippetComments = response.data;
+            });
+        }
+
+        $scope.AddComment = function(){
+            var newCodeSnippetComment = {
+                codeSnippetId: $scope.snipDetail._id,
+                comment: $scope.codeSnipComment,
+                userId: $scope.snipDetail.userId
+            }
+
+            codeSnipDetailService.addCodeSnippetComments(newCodeSnippetComment).then(function(response){
+                $scope.codeSnipComment = '';
+                $scope.GetCodeSnippetComments();
+            })
+        }
     }    
 
     angular.module('codeSnip').controller('codeSnipDetailController', ['$rootScope', '$scope', '$routeParams', '$http', '$location', 'codeSnipDetailService', 'languageService', 'listCodeSnippetsService', codeSnipDetailController]);
