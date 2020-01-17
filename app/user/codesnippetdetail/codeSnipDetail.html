@@ -1,7 +1,7 @@
 <div class="viewheight" ng-controller="codeSnipDetailController" class="container-fluid">
     <div class="table">
         <div class="row">
-            <div class="col-sm-10"><h3>{{snipDetail.title}}</h3></div>
+            <div class="col-sm-10"><h3><b>{{snipDetail.title}}</b></h3></div>
             <div class="col-sm-2 vertical-center">
                     <label>{{codeSnippetVotes.votes}} votes</label>
                     <button type="button" ng-click="voteForCodeSnippet();" class="btn btn-primary btn-xm">Vote</button>
@@ -31,17 +31,13 @@
         </div>
         <div class="row">&nbsp;</div>
 
-        <div class="row" style="margin-left: 5; margin-right: 5;">
-            <div >
-                <label><h4><b>Comments</b></h4></label>
+        <div class="container" style="padding: 0px;">
+            <h4><b>Comments</b></h4>
+            <div class="col-sm-11 panel-group" style="padding: 0px;">
+              <div class="panel panel-default" ng-repeat="codeSnippetComment in codeSnippetComments">
+                <div class="panel-body">{{codeSnippetComment.comment}}</div>
+              </div>
             </div>
-            <div style="background-color:gainsboro;">
-                <div ng-repeat="codeSnippetComment in codeSnippetComments">
-                    <div><hr/></div>
-                    <label>{{codeSnippetComment.comment}}</label>
-                </div>
-            </div>
-            <div>&nbsp;</div>
         </div>
 
         <div class="row">&nbsp;</div>
