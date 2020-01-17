@@ -5,7 +5,7 @@
     function listCodeSnippetsController($rootScope, $scope, $http, listCodeSnippetsService){
 
         $scope.currentPage = 1;
-        $scope.numPerPage = 6;
+        $scope.numPerPage = 10;
         $scope.maxSize = 5;
         
         $scope.$on('filterByLanguage', function(event, value){
