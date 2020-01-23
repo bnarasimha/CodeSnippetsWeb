@@ -26,9 +26,12 @@
             getCodeSnippetComments: function(codeSnippetId){
                 return $http.get(ApiUrl + '/getCodeSnippetComments/' + codeSnippetId);
             },
-            addCodeSnippetComments: function(newCodeSnippetComment){
+            addCodeSnippetComment: function(newCodeSnippetComment){
                 return $http.post(ApiUrl + '/addCodeSnippetComment/',  newCodeSnippetComment);
             },
+            deleteCodeSnippetComment: function(codeCommentId){
+                return $http.delete(ApiUrl + '/deleteCodeSnippetComment/'+  codeCommentId);
+            }
         }
     };
 

@@ -1,34 +1,37 @@
 (function(){
     'use strict'
 
-    function codeSnipDetailController($rootScope, $scope, $routeParams, $http, $location, codeSnipDetailService, languageService, listCodeSnippetsService){
-        
-        $scope._id = $routeParams.ID;
-        var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
+    function codeSnipDetailController($rootScope, $scope, $routeParams, $http, $location, codeSnipDetailService, languageService){
         
         var labels = [];
 
+        $scope._id = $routeParams.ID;
+        var hostUrl = 'http://' + $location.host() + ':' + $location.port() + '/#/';
+        
         languageService.getlanguages().then(function(response){
             $scope.languages = response.data;
         });
 
         codeSnipDetailService.getCodeSnipDetail($scope._id).then(function(response){
             $scope.snipDetail = response.data;
-            $scope.tags = labels = $scope.snipDetail.tags.split(',');
+            if($scope.snipDetail.tags != undefined){
+                $scope.tags = labels = $scope.snipDetail.tags.split(',');
 
-            if ($rootScope.userId == $scope.snipDetail.userId)
-                $scope.EditAllowed = true;
-            else
-                $scope.EditAllowed = false;
+                if ($rootScope.userId == $scope.snipDetail.userId)
+                    $scope.EditAllowed = true;
+                else
+                    $scope.EditAllowed = false;
+            }
         });
 
-        codeSnipDetailService.getCodeSnippetVotes($scope._id).then(function(response){
-            $scope.codeSnippetVotes = response.data;
+        $scope.$on('GetCodSnippetComments', function(event, value){
+            GetCodeSnippetComments();
         });
 
-        codeSnipDetailService.getCodeSnippetComments($scope._id).then(function(response){
-            $scope.codeSnippetComments = response.data;
-        });
+        GetCodeSnippetVotes();
+
+        GetCodeSnippetComments();
+
 
         $scope.Back = function(){
             location.href = hostUrl;
@@ -74,7 +77,7 @@
             $scope.tags = labels;
         }
 
-        $scope.voteForCodeSnippet = function(){
+        $scope.AddVoteForCodeSnippet = function(){
 
             if($scope.codeSnippetVotes == null)
             {
@@ -84,6 +87,7 @@
                 }
                 codeSnipDetailService.addCodeSnippetVote(addCodeSnippetVote).then(function(respose){
                     console.log("Voted successfully");
+                    $scope.codeSnippetVotes = respose.data;
                 })
             }
             else
@@ -102,25 +106,56 @@
             }
         }
 
-        $scope.GetCodeSnippetComments = function(){
-            codeSnipDetailService.getCodeSnippetComments($scope._id).then(function(response){
-                $scope.codeSnippetComments = response.data;
-            });
-        }
-
         $scope.AddComment = function(){
             var newCodeSnippetComment = {
                 codeSnippetId: $scope.snipDetail._id,
                 comment: $scope.codeSnipComment,
-                userId: $scope.snipDetail.userId
+                userId: $rootScope.userId
             }
 
-            codeSnipDetailService.addCodeSnippetComments(newCodeSnippetComment).then(function(response){
-                $scope.codeSnipComment = '';
-                $scope.GetCodeSnippetComments();
+            codeSnipDetailService.addCodeSnippetComment(newCodeSnippetComment).then(function(response){
+                console.log('Added comment successfully');
+                $rootScope.$broadcast('GetCodSnippetComments', response.data);
             })
+            $scope.codeSnipComment = '';
+        }
+
+        $scope.DeleteComment = function(codeCommentId){
+            codeSnipDetailService.deleteCodeSnippetComment(codeCommentId).then(function(response){
+                console.log('Added comment successfully');
+                $rootScope.$broadcast('GetCodSnippetComments', response.data);
+            });
+        }
+
+        function GetCodeSnippetComments(){
+            var codeSnippetComments = new Array();
+
+            codeSnipDetailService.getCodeSnippetComments($scope._id).then(function(response){
+                if(response.data != undefined){                   
+                    var i;
+                    for (i = 0; i < response.data.length; i++) {
+                        var canEdit = (response.data[i].userId == $rootScope.userId);
+
+                        var commentObj = {
+                            _id: response.data[i]._id,
+                            comment : response.data[i].comment,
+                            userId : response.data[i].userId,
+                            codeSnippetId : response.data[i].codeSnippetId,
+                            isEditAllowed :  canEdit
+                        }
+                        codeSnippetComments.push(commentObj);
+                    }
+                    $scope.codeSnippetComments = codeSnippetComments;
+                }
+            });
+        }   
+
+        function GetCodeSnippetVotes(){
+            codeSnipDetailService.getCodeSnippetVotes($scope._id).then(function(response){
+                $scope.codeSnippetVotes = response.data;
+            });
         }
     }    
 
-    angular.module('codeSnip').controller('codeSnipDetailController', ['$rootScope', '$scope', '$routeParams', '$http', '$location', 'codeSnipDetailService', 'languageService', 'listCodeSnippetsService', codeSnipDetailController]);
+    angular.module('codeSnip').controller('codeSnipDetailController', ['$rootScope', '$scope', '$routeParams', '$http', '$location', 'codeSnipDetailService', 'languageService', codeSnipDetailController]);
 })();

@@ -15,7 +15,7 @@
             </div>
             <div class="form-group col-sm-12">
                 <label for="codeSnip"> Code Snippet </label>
-                <textarea id="codeSnip" class="form-control" rows="10" cols="100" ng-model="snipDetail.codesnippet"></textarea>
+                <textarea id="codeSnip" style="border: solid 1px black;" class="form-control" rows="10" cols="100" ng-model="snipDetail.codesnippet"></textarea>
             </div>
             <div class="form-group col-sm-12">
                     <label for="codeSnip"> URL Reference </label>
@@ -32,6 +32,44 @@
                         </button>
                     </div>
             </div>
+            <div class="row">&nbsp;</div>
+
+            <div class="row" style="padding-left: 25px;">
+                <h4><b>Comments</b></h4>
+            </div>
+
+            <div class="row" style="padding-left: 25px; padding-right: 25px;">
+                <div class="col-sm-12">
+                    <div class="panel-group">
+                        <div style="border: solid 1px grey;" class="row panel panel-default" ng-repeat="codeSnippetComment in codeSnippetComments" >
+                            <div class="col-sm-8">
+                                <div style="padding: 15px;">{{codeSnippetComment.comment}}</div>
+                            </div>   
+                            <div class="col-sm-4">
+                                <div align="right">{{codeSnippetComment.userId}}</div>
+                                <div align="right">
+                                    <button type="button" ng-show="codeSnippetComment.isEditAllowed" class="btn btn-primary btn-xs" ng-click="EditComment();">Edit</button>
+                                    <button type="button" ng-show="codeSnippetComment.isEditAllowed" class="btn btn-primary btn-xs" ng-click="DeleteComment(codeSnippetComment._id);">Delete</button>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+    
+            <div class="row">&nbsp;</div>
+
+            
+            <div class="row" style="padding-left: 25px; padding-right: 25px;">
+                <div><label><b>Add Comment</b></label></div>
+                <div>
+                    <textarea style="border: solid 1px black;" id="codeSnipComment" class="form-control" rows="2" cols="100" ng-model="codeSnipComment"></textarea>
+                    <div style="height: 5px;">&nbsp;</div>
+                    <button type="button" class="btn btn-primary" ng-click="AddComment();">Add</button>
+                </div>
+            </div>
+
             <div class="row">&nbsp;</div>
 
             <div class="form-group col-sm-12">
