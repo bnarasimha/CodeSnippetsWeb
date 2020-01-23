@@ -19,7 +19,8 @@
                     codesnippet: $scope.codeSnip,
                     urlreference: $scope.urlreference,
                     userId: $rootScope.userId,
-                    tags:  labels.toString()
+                    tags:  labels.toString(),
+                    createdDate: new Date()
                 };
 
                 addCodeSnippetService.addCodeSnippet(codeSnippet).then(function () {

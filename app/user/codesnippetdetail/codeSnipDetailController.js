@@ -14,13 +14,14 @@
 
         codeSnipDetailService.getCodeSnipDetail($scope._id).then(function(response){
             $scope.snipDetail = response.data;
+            
+            if ($rootScope.userId == $scope.snipDetail.userId)
+                $scope.EditAllowed = true;
+            else
+                $scope.EditAllowed = false;
+
             if($scope.snipDetail.tags != undefined){
                 $scope.tags = labels = $scope.snipDetail.tags.split(',');
-
-                if ($rootScope.userId == $scope.snipDetail.userId)
-                    $scope.EditAllowed = true;
-                else
-                    $scope.EditAllowed = false;
             }
         });
 
