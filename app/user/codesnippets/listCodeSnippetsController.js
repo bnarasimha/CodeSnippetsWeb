@@ -8,15 +8,9 @@
         $scope.numPerPage = 10;
         $scope.maxSize = 5;
         
-        $scope.$on('filterByLanguage', function(event, value){
-            $scope.CodeSnippetsByLanguage(value);
-        });
-
-        $scope.$on('filterByTags', function(event, value){
-            $scope.CodeSnippetsByTags(value);
-        });
-
-        $scope.GetCodeSnippets = function(){            
+        GetCodeSnippets();
+        
+        function GetCodeSnippets(){
             listCodeSnippetsService.GetCodeSnippets().then(function(response){
                 $scope.codeSnippetsReceived = response.data;
 
@@ -26,9 +20,21 @@
                     $scope.codeSnippets = $scope.codeSnippetsReceived.slice(begin, end);
                 })
             })
+        }
+
+        $scope.$on('filterByLanguage', function(event, value){
+            $scope.CodeSnippetsByLanguage(value);
+        });
+
+        $scope.$on('filterByTags', function(event, value){
+            $scope.CodeSnippetsByTags(value);
+        });
+
+        $scope.GetCodeSnippets = function(){            
+            GetCodeSnippets();
         };
 
-         $scope.SearchCodeSnippets = function(){
+        $scope.SearchCodeSnippets = function(){
              
              if($scope.SearchText == undefined || $scope.SearchText == ''){
                  $scope.GetCodeSnippets();
