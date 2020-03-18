@@ -17,3 +17,4 @@ spec:
         image: bnarasimha21/codesnip:1.0
         ports:
         - containerPort: 3000
+        imagePullPolicy: Always
